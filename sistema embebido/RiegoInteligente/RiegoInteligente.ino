@@ -150,12 +150,12 @@ void ChequearEjecucion()
   if(millis() - UltimoRefresco >= TIEMPO_REFRESCO_SENSORES)
   {
     UltimoRefresco += TIEMPO_REFRESCO_SENSORES;
-
-       //ACA HAY QUE CHEQUEAR LOS SENSORES E IMPLEMENTAR LA LOGICA DE LAS EXCEPCIONES!!!! 
-       // evaluar sensor de luz
-       // evaluar sensor de lluvia 
-       //por cada circuito evaluar sensores de humedad
-       // por cada circuito ver q no tenga ninguna excepcion seteada
+      
+      //TODO 1: CHEQUEAR LOS SENSORES E IMPLEMENTAR LA LOGICA DE LAS EXCEPCIONES!!!! 
+      // 1.evaluar sensor de luz
+      // 2.evaluar sensor de lluvia 
+      // por cada circuito evaluar sensores de humedad
+      // por cada circuito ver q no tenga ninguna excepcion seteada
 
 
        for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
