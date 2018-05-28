@@ -18,21 +18,6 @@ char hexaKeys[ROWS][COLS] = {
   {'*', '0', '#', 'D'}
 };
 
-byte rowPins[ROWS] = {9, 8, 7, 6}; 
-byte colPins[COLS] = {5, 4, 3, 2}; 
-
-Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
-byte testChar[8] = {
-  0b11111,
-  0b10001,
-  0b10001,
-  0b10001,
-  0b10001,
-  0b10001,  
-  0b10001,
-  0b11111
-};
-
 const int HORA_DESDE = 0;
 const int MINUTO_DESDE = 1;
 const int HORA_HASTA = 2;
@@ -45,26 +30,54 @@ const int INICIO_FIN_MANUAL = 1;
 const int PAUSAR_PROGRAMACION = 2;
 const int REANUDAR_PROGRAMACION = 3;
 const int EXCEPCIONES = 4;
-const int INFORMES = 5;
+const int CONFIGURACIONES = 5;
 const int CONTRASENA = 6;
 
 int posicion = 0;
 int cursor = 0;
 static unsigned long UltimoRefresco = 0;
-
-/* ===== SETEO INICIAL ======= */
-const int CANTIDAD_CIRCUITOS = 3;
 int menuActual = MENU_PRINCIPAL;
-bool programacionActivada = true;
+
+/******************************************************************************************************************************************************* */
+/******************************************************************************************************************************************************* */
+/* ********************  PINES  *************************************** */
+/* ===== SETEO INICIAL ======= */
+byte rowPins[ROWS] = {44, 42, 40, 38}; 
+byte colPins[COLS] = {36, 34, 32, 30}; 
+const int pinOutputDigitalReleeInicio = 8; //Desde este pin se van a conectar las salidas de los circuitos
+const int pinAnalogicoSensorHumedadInicio = 0; //Los sensores de humedad deben estar en orden en las entradas analogicas arrancando desde este numero
+const int pinAnalogicoSensorGotasDeLluvia = 6;
+const int pinAnalogicoSensorLDRLuz = 8;
+
+const int CANTIDAD_CIRCUITOS = 3; //OJO NO CAMBIAR, NO ESTA PROBADO
+bool modoAutomatico = true;
 bool diasExcepcion[CANTIDAD_CIRCUITOS][7] ;
 int horasExcepcion[CANTIDAD_CIRCUITOS][4] ;
 bool funcionamientoCircuito[CANTIDAD_CIRCUITOS];
 
-const int PinSensorTemperaturaCircuito1 = 22;
-const int TIEMPO_REFRESCO_SENSORES = 2000; //ms
+int limiteSensorHumedad = 50; //indica el limite que define que haya o no humedad
+int limiteSensorLDR = 50; //indica nuestro limite que define la cantidad de luz
+int limiteSensorLluvia = 50;
+
+const int TIEMPO_REFRESCO_SENSORES = 3000; //ms
 char codigoSecreto[4] ={'9','8','7','6'};
+/* ===== FIN SETEO INICIAL ======= */
+/******************************************************************************************************************************************************* */
+/******************************************************************************************************************************************************* */
+/******************************************************************************************************************************************************* */
 
 
+Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
+byte testChar[8] = {
+  0b11111,
+  0b10001,
+  0b10001,
+  0b10001,
+  0b10001,
+  0b10001,  
+  0b10001,
+  0b11111
+};
 
 void setup () {
 
@@ -94,10 +107,13 @@ void setup () {
 
    //EJECUTAR SOLO LA PRIMERA VEZ
    //rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+    
 
-   pinMode(LED_BUILTIN, OUTPUT);
-
-   pinMode(PinSensorTemperaturaCircuito1, INPUT);
+   pinMode(LED_BUILTIN, OUTPUT);   
+   for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
+   {
+      pinMode(pinOutputDigitalReleeInicio + i, OUTPUT);
+   }
    
 }
 
@@ -145,37 +161,103 @@ char LeerTecla()
 
 void ChequearEjecucion()
 {
-  /* FUNCION QUE SE EJECUTA CADA X SEGUNDOS */ 
-  
-  if(millis() - UltimoRefresco >= TIEMPO_REFRESCO_SENSORES)
+  if(modoAutomatico)
   {
-    UltimoRefresco += TIEMPO_REFRESCO_SENSORES;
+    int luz;
+    int lluvia;
+    int humedad[CANTIDAD_CIRCUITOS];
+    
+    /* FUNCION QUE SE EJECUTA CADA X SEGUNDOS */   
+    if(millis() - UltimoRefresco >= TIEMPO_REFRESCO_SENSORES)
+    {
+       UltimoRefresco += TIEMPO_REFRESCO_SENSORES;
       
       //TODO 1: CHEQUEAR LOS SENSORES E IMPLEMENTAR LA LOGICA DE LAS EXCEPCIONES!!!! 
       // 1.evaluar sensor de luz
       // 2.evaluar sensor de lluvia 
       // por cada circuito evaluar sensores de humedad
       // por cada circuito ver q no tenga ninguna excepcion seteada
-
-
-       for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
-       {
-          if(hayExcepcionConfigurada(i))
+  
+        lluvia = map(analogRead(pinAnalogicoSensorGotasDeLluvia),1023,0,0,100); //mapea los valores en un rango de 0 a 100 (porcentaje)      
+        luz = map(analogRead(pinAnalogicoSensorLDRLuz),0,1023,0,100); //mapea los valores en un rango de 0 a 100 (porcentaje)      
+        
+        Serial.println("*******************************************************");
+        Serial.print("LUZ: ");
+        Serial.print(luz);
+        Serial.print(" (");
+        Serial.print(limiteSensorLDR);
+        Serial.print(")");
+        Serial.print("  |||  LLUVIA: ");
+        Serial.print(lluvia);
+        Serial.print(" (");
+        Serial.print(limiteSensorLluvia);
+        Serial.print(")");
+        Serial.println();
+        Serial.print("HUMEDAD:");
+        for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
+        {  
+          humedad[i] = map(analogRead(pinAnalogicoSensorHumedadInicio + i),1023,0,0,100);
+          Serial.print("["); 
+          Serial.print(i);
+          Serial.print("] ");    
+          Serial.print(humedad[i]);
+          Serial.print(" (");
+          Serial.print(limiteSensorHumedad);
+          Serial.print(") ||| ");    
+        }
+        Serial.println();
+        
+        
+        for(int i = 0;  i < CANTIDAD_CIRCUITOS ; i++)
+        {            
+          if(! hayExcepcionConfigurada(i))
           {
-            Serial.println("EXCEPCION DETECTADA");
-            Serial.print("CIRCUITO ");
-            Serial.print(i);
-            Serial.println("****************** ");  
+            if(humedad[i] < limiteSensorHumedad)
+            {
+              if(luz < limiteSensorLDR && lluvia < limiteSensorLluvia)    
+                ActivarCircuito(i);           
+              else
+                DesactivarCircuito(i);           
+            }       
+            else
+            {
+              DesactivarCircuito(i);           
+            }
+          }
+          else
+          {
+            Serial.println("******* EXCEPCION DETECTADA ******** ");  
+            DesactivarCircuito(i);           
           }
        }     
- 
-       
+       Serial.println("****************************************************");
+     }
   }
+}
+
+void DesactivarCircuito(int circuito)
+{
+  funcionamientoCircuito[circuito] = false;
+  digitalWrite(pinOutputDigitalReleeInicio + circuito, LOW);
+}
+
+void ActivarCircuito(int circuito)
+{
+  funcionamientoCircuito[circuito] = true;
+  digitalWrite(pinOutputDigitalReleeInicio + circuito, HIGH);
 }
 
 bool hayExcepcionConfigurada(int numeroCircuito)
 {
   DateTime now = rtc.now();
+  /*  
+  Serial.print("HORA ACTUAL: ");
+  Serial.print(now.hour());
+  Serial.print(':');
+  Serial.print(now.minute());
+  Serial.print(':');
+  Serial.print(now.second());
+  */
   if (horasExcepcion[numeroCircuito][0] == HORA_NO_VALIDA ||  horasExcepcion[numeroCircuito][1] == HORA_NO_VALIDA || horasExcepcion[numeroCircuito][2] == HORA_NO_VALIDA  || horasExcepcion[numeroCircuito][3] == HORA_NO_VALIDA  )
   {
     return false;  
@@ -184,9 +266,9 @@ bool hayExcepcionConfigurada(int numeroCircuito)
   {
     return false;
   }
-  int desde = horasExcepcion[numeroCircuito][0] * 60 + horasExcepcion[numeroCircuito][1];
-  int hasta = horasExcepcion[numeroCircuito][2] * 60 + horasExcepcion[numeroCircuito][3];
-  int ahora = now.hour() *60 + now.minute(); 
+  int desde = horasExcepcion[numeroCircuito][HORA_DESDE] * 60 + horasExcepcion[numeroCircuito][MINUTO_DESDE];
+  int hasta = horasExcepcion[numeroCircuito][HORA_HASTA] * 60 + horasExcepcion[numeroCircuito][MINUTO_HASTA];
+  int ahora = now.hour() * 60 + now.minute(); 
   if( ahora >= desde && ahora <= hasta)
   {
     return true;      
@@ -222,6 +304,9 @@ void LeerOpcionDeMenu(char customKey)
           break;       
         case EXCEPCIONES:
           LeerOpcionExcepciones(customKey);
+          break;
+        case CONFIGURACIONES:
+          LeerOpcionConfiguraciones(customKey);
           break;
    }  
 }
@@ -292,10 +377,10 @@ void LeerTeclaContrasena(char customKey)
       lcd.setCursor(0,0);
       lcd.print("A- INICIAR / PARAR");
       lcd.setCursor(0,1);
-      if(programacionActivada)
-        lcd.print("B- PAUSAR PROGRAMA");
+      if(modoAutomatico)
+        lcd.print("B- MODO MANUAL");
       else
-        lcd.print("B- REANUDAR PROGRAMA");
+        lcd.print("B- MODO AUTOMATICO");
       lcd.setCursor(0,2);
       lcd.print("C- EXCEPCIONES");
       lcd.setCursor(0,3);
@@ -312,12 +397,12 @@ void LeerTeclaContrasena(char customKey)
           menuActual = INICIO_FIN_MANUAL;
           for(int i = 1; i <= CANTIDAD_CIRCUITOS; i++)
           {        
-            IniciarPararManualCircuito(i);
+            IniciarPararManualCircuito(i-1);
           }
           MostrarMenuPrincipal();
           break;    
         case 'B':
-            if(programacionActivada)
+            if(modoAutomatico)
             {
               menuActual = PAUSAR_PROGRAMACION;
               PausarProgramacion();
@@ -333,6 +418,10 @@ void LeerTeclaContrasena(char customKey)
         case 'C':
             menuActual = EXCEPCIONES;
             MostrarOpcionesExcepciones();
+            break;  
+        case 'D':
+            menuActual = CONFIGURACIONES;
+            MostrarOpcionesConfiguraciones();
             break;    
       }   
     }
@@ -349,7 +438,7 @@ void LeerTeclaContrasena(char customKey)
     lcd.clear();
     delay(200);
     lcd.setCursor(0,0);
-    if(funcionamientoCircuito[numeroCircuito-1])
+    if(funcionamientoCircuito[numeroCircuito])
     {
       lcd.print("PARAR  CIRCUITO ");
     }
@@ -358,7 +447,7 @@ void LeerTeclaContrasena(char customKey)
       lcd.print("INICIAR  CIRCUITO ");
     }
     
-    lcd.print(numeroCircuito);
+    lcd.print(numeroCircuito+1);
     lcd.setCursor(0,1);
     lcd.print("--------------------");
     lcd.setCursor(0,2);
@@ -374,7 +463,16 @@ void LeerTeclaContrasena(char customKey)
         switch(customKey)
         {
           case 'A':
-            funcionamientoCircuito[numeroCircuito-1] = !funcionamientoCircuito[numeroCircuito-1];
+            funcionamientoCircuito[numeroCircuito] = !funcionamientoCircuito[numeroCircuito];
+            if(funcionamientoCircuito[numeroCircuito])
+            {
+              digitalWrite(pinOutputDigitalReleeInicio + numeroCircuito, HIGH);  
+            }
+            else
+            {
+              digitalWrite(pinOutputDigitalReleeInicio + numeroCircuito, LOW);  
+            }
+            
             salir = true;
             break;
           case 'B':
@@ -395,14 +493,14 @@ void LeerTeclaContrasena(char customKey)
 
     void PausarProgramacion()
     {
-      programacionActivada = false;
+      modoAutomatico = false;
       lcd.clear();
       lcd.setCursor(0,0);
       lcd.print("--------------------");
       lcd.setCursor(0,1);
       lcd.print("|   PROGRAMACION   |");
       lcd.setCursor(0,2);
-      lcd.print("|     PAUSADA      |");
+      lcd.print("|  AUTO. INICIADA  |");      
       lcd.setCursor(0,3);
       lcd.print("--------------------");
       delay(3000);
@@ -411,14 +509,14 @@ void LeerTeclaContrasena(char customKey)
     
     void ReanudarProgramacion()
     {
-      programacionActivada = true;
+      modoAutomatico = true;
       lcd.clear();
       lcd.setCursor(0,0);
       lcd.print("--------------------");
       lcd.setCursor(0,1);
       lcd.print("|   PROGRAMACION   |");
       lcd.setCursor(0,2);
-      lcd.print("|     REANUDADA    |");
+      lcd.print("| MANUAL  ACTIVADA |");
       lcd.setCursor(0,3);
       lcd.print("--------------------");
       delay(3000);
@@ -757,12 +855,78 @@ void LeerTeclaContrasena(char customKey)
                     FIN MENU EXCEPCIONES
 ========================================================================*/
 
+/*========================================================================
+                    MENU CONFIGURACIONES
+========================================================================*/
+
+ void MostrarOpcionesConfiguraciones()
+    {
+      lcd.clear();
+      lcd.setCursor(0,0);
+      lcd.print("A- SENSOR HUMEDAD");
+      lcd.setCursor(0,1);
+      lcd.print("B- SENSOR LUZ");
+      lcd.setCursor(0,2);
+      lcd.print("C- SENSOR LLUVIA");
+      lcd.setCursor(0,3);
+      lcd.print("           * - SALIR");
+    }
+
+  void LeerOpcionConfiguraciones(char customKey)
+    {
+        switch(customKey)
+        {
+           case 'A':
+              ConfigurarHumedad();              
+              MostrarMenuPrincipal();
+              break;
+           case 'B':
+              //ConfigurarLuz();
+              MostrarMenuPrincipal();
+              break;
+           case 'C':
+              //ConfigurarLluvia();
+              MostrarMenuPrincipal();
+              break;              
+           case '*':
+              MostrarMenuPrincipal();
+              break;
+        }  
+    }
+
+    void ConfigurarHumedad()
+    {
+      bool redibujar = true;
+      int numero = 0;
+      
+      while(redibujar)
+      {    
+        lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("** LIMITE HUMEDAD **");
+        lcd.setCursor(0,1);
+        lcd.print("VALOR ACTUAL:  ");    
+        lcd.print(limiteSensorHumedad);        
+        lcd.setCursor(0,2);
+        lcd.print("NUEVO VALOR: ");        
+        lcd.setCursor(0,3);
+        lcd.print("           * - SALIR ");
+        lcd.setCursor(13,2);
+        lcd.print("__");
+        lcd.setCursor(13,2);
+        numero = PedirNumeroDosDigitos();
+        if(numero < 0)
+          redibujar = false;
+      }    
+    }
+
+/*========================================================================
+                    MENU CONFIGURACIONES
+========================================================================*/
 
 /*========================================================================
                     FUNCIONES EXTRA
 ========================================================================*/
-
-
 int PedirNumeroDosDigitos()
 {
    int num = 0;
@@ -784,6 +948,10 @@ int PedirNumeroDosDigitos()
       }
       key = LeerTecla();
    }  
+   
+   if(key == '*')
+    return -1;
+    
    return num;
 }
 
