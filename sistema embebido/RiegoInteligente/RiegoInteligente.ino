@@ -38,10 +38,10 @@ int cursor = 0;
 static unsigned long UltimoRefresco = 0;
 int menuActual = MENU_PRINCIPAL;
 
+
 /******************************************************************************************************************************************************* */
 /******************************************************************************************************************************************************* */
-/* ********************  PINES  *************************************** */
-/* ===== SETEO INICIAL ======= */
+/* ********************  SETEO INICIAL  *************************************** */
 byte rowPins[ROWS] = {44, 42, 40, 38}; 
 byte colPins[COLS] = {36, 34, 32, 30}; 
 const int pinOutputDigitalReleeInicio = 8; //Desde este pin se van a conectar las salidas de los circuitos
@@ -61,7 +61,6 @@ int limiteSensorLluvia = 50;
 
 const int TIEMPO_REFRESCO_SENSORES = 3000; //ms
 char codigoSecreto[4] ={'9','8','7','6'};
-/* ===== FIN SETEO INICIAL ======= */
 /******************************************************************************************************************************************************* */
 /******************************************************************************************************************************************************* */
 /******************************************************************************************************************************************************* */
@@ -106,15 +105,13 @@ void setup () {
    UltimoRefresco = 0;
 
    //EJECUTAR SOLO LA PRIMERA VEZ
-   //rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-    
+   //rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));    
 
    pinMode(LED_BUILTIN, OUTPUT);   
    for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
    {
       pinMode(pinOutputDigitalReleeInicio + i, OUTPUT);
-   }
-   
+   }   
 }
 
 void loop () {
@@ -122,7 +119,21 @@ void loop () {
   char tecla = LeerTecla();
   if(tecla)
   {
-    LeerOpcionDeMenu(tecla);
+    switch(menuActual)
+    {
+        case CONTRASENA:
+          LeerTeclaContrasena(tecla);
+          break;       
+        case MENU_PRINCIPAL:
+          LeerOpcionMenuPrincipal(tecla);
+          break;       
+        case EXCEPCIONES:
+          LeerOpcionExcepciones(tecla);
+          break;
+        case CONFIGURACIONES:
+          LeerOpcionConfiguraciones(tecla);
+          break;
+   }  
   }
    
   /*
@@ -292,28 +303,6 @@ void ImprimirDateTime(DateTime dt)
     Serial.print(dt.second(), DEC);
 }
 
-void LeerOpcionDeMenu(char customKey)
-{
-    switch(menuActual)
-    {
-        case CONTRASENA:
-          LeerTeclaContrasena(customKey);
-          break;       
-        case MENU_PRINCIPAL:
-          LeerOpcionMenuPrincipal(customKey);
-          break;       
-        case EXCEPCIONES:
-          LeerOpcionExcepciones(customKey);
-          break;
-        case CONFIGURACIONES:
-          LeerOpcionConfiguraciones(customKey);
-          break;
-   }  
-}
-
-
-
-
 
 /*========================================================================
                    CONTRASEÑA
@@ -338,7 +327,7 @@ void MostrarPantallaContrasena()
 void LeerTeclaContrasena(char customKey)
 {
   if (customKey != '#' && customKey != '*')
-   { 
+  { 
      lcd.setCursor(cursor,3);
      lcd.print(customKey); 
      cursor++;                   
@@ -361,7 +350,7 @@ void LeerTeclaContrasena(char customKey)
           MostrarPantallaContrasena();
         }
       }
-    }
+  }
 }
 
 
@@ -372,59 +361,59 @@ void LeerTeclaContrasena(char customKey)
 /*========================================================================
                     MENU PRINCIPAL
 ========================================================================*/
-  void MostrarMenuPrincipal(){
-      lcd.clear();
-      lcd.setCursor(0,0);
-      lcd.print("A- INICIAR / PARAR");
-      lcd.setCursor(0,1);
-      if(modoAutomatico)
-        lcd.print("B- MODO MANUAL");
-      else
-        lcd.print("B- MODO AUTOMATICO");
-      lcd.setCursor(0,2);
-      lcd.print("C- EXCEPCIONES");
-      lcd.setCursor(0,3);
-      lcd.print("D- CONFIGURAR");
-      lcd.setCursor(0,4);
-      menuActual = MENU_PRINCIPAL;
-    }
+void MostrarMenuPrincipal(){
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("A- INICIAR / PARAR");
+    lcd.setCursor(0,1);
+    if(modoAutomatico)
+      lcd.print("B- MODO AUTOMATICO");
+    else
+      lcd.print("B- MODO MANUAL");
+    lcd.setCursor(0,2);
+    lcd.print("C- EXCEPCIONES");
+    lcd.setCursor(0,3);
+    lcd.print("D- CONFIGURACION");
+    lcd.setCursor(0,4);
+    menuActual = MENU_PRINCIPAL;
+  }
 
     
-    void LeerOpcionMenuPrincipal(char customKey)
-    {
-      switch (customKey){
-        case 'A':
-          menuActual = INICIO_FIN_MANUAL;
-          for(int i = 1; i <= CANTIDAD_CIRCUITOS; i++)
-          {        
-            IniciarPararManualCircuito(i-1);
-          }
+void LeerOpcionMenuPrincipal(char customKey)
+{
+  switch (customKey){
+    case 'A':
+      menuActual = INICIO_FIN_MANUAL;
+      for(int i = 1; i <= CANTIDAD_CIRCUITOS; i++)
+      {        
+        IniciarPararManualCircuito(i-1);
+      }
+      MostrarMenuPrincipal();
+      break;    
+    case 'B':
+        if(modoAutomatico)
+        {
+          menuActual = PAUSAR_PROGRAMACION;
+          PausarProgramacion();
           MostrarMenuPrincipal();
-          break;    
-        case 'B':
-            if(modoAutomatico)
-            {
-              menuActual = PAUSAR_PROGRAMACION;
-              PausarProgramacion();
-              MostrarMenuPrincipal();
-            }
-            else
-            {
-              menuActual = REANUDAR_PROGRAMACION;
-              ReanudarProgramacion();
-              MostrarMenuPrincipal();
-            }
-            break;
-        case 'C':
-            menuActual = EXCEPCIONES;
-            MostrarOpcionesExcepciones();
-            break;  
-        case 'D':
-            menuActual = CONFIGURACIONES;
-            MostrarOpcionesConfiguraciones();
-            break;    
-      }   
-    }
+        }
+        else
+        {
+          menuActual = REANUDAR_PROGRAMACION;
+          ReanudarProgramacion();
+          MostrarMenuPrincipal();
+        }
+        break;
+    case 'C':
+        menuActual = EXCEPCIONES;
+        MostrarOpcionesExcepciones();
+        break;  
+    case 'D':
+        menuActual = CONFIGURACIONES;
+        MostrarOpcionesConfiguraciones();
+        break;    
+  }   
+}
 /*========================================================================
                     FIN MENU PRINCIPAL
 ========================================================================*/
@@ -872,53 +861,175 @@ void LeerTeclaContrasena(char customKey)
       lcd.print("           * - SALIR");
     }
 
-  void LeerOpcionConfiguraciones(char customKey)
+void LeerOpcionConfiguraciones(char customKey)
+{
+    switch(customKey)
     {
+       case 'A':
+          ConfigurarHumedad();              
+          MostrarMenuPrincipal();
+          break;
+       case 'B':
+          ConfigurarLuz();
+          MostrarMenuPrincipal();
+          break;
+       case 'C':
+          ConfigurarLluvia();
+          MostrarMenuPrincipal();
+          break;              
+       case '*':
+          MostrarMenuPrincipal();
+          break;
+    }  
+}
+
+void ConfigurarHumedad()
+{
+  bool redibujar = true;
+  int numero = 0;
+  
+  while(redibujar)
+  {    
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("TEST:");
+    lcd.setCursor(6,0);
+    for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
+    {  
+      lcd.print(map(analogRead(pinAnalogicoSensorHumedadInicio + i),1023,0,0,100));
+      lcd.print("% ");
+    }
+    lcd.setCursor(0,1);
+    lcd.print("LIMITE ACTUAL: ");    
+    lcd.print(limiteSensorHumedad);   
+    lcd.print("%");
+            
+    lcd.setCursor(0,3);
+    lcd.print("A- EDITAR   * -SALIR");
+        
+    bool salir = false;
+    while(!salir)
+    {
+      char customKey = LeerTecla();
+      if(customKey)
+       {
         switch(customKey)
         {
-           case 'A':
-              ConfigurarHumedad();              
-              MostrarMenuPrincipal();
-              break;
-           case 'B':
-              //ConfigurarLuz();
-              MostrarMenuPrincipal();
-              break;
-           case 'C':
-              //ConfigurarLluvia();
-              MostrarMenuPrincipal();
-              break;              
-           case '*':
-              MostrarMenuPrincipal();
-              break;
-        }  
+          case '*':
+            salir = true;
+            redibujar = false;
+            break;
+          case 'A':
+            lcd.setCursor(0,2);
+            lcd.print("NUEVO VALOR: ");   
+            lcd.setCursor(13,2);
+            lcd.print("__ %");
+            lcd.setCursor(13,2);
+            limiteSensorHumedad = PedirNumeroDosDigitos();
+            salir = true;
+            break;             
+        }
+      }
     }
+  }
+}
 
-    void ConfigurarHumedad()
+void ConfigurarLuz()
+{
+  bool redibujar = true;
+  int numero = 0;
+  
+  while(redibujar)
+  {    
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("LUZ: ");    
+    lcd.print(map(analogRead(pinAnalogicoSensorLDRLuz),0,1023,0,100));
+    lcd.print("%");    
+    
+    lcd.setCursor(0,1);
+    lcd.print("LIMITE ACTUAL:  ");    
+    lcd.print(limiteSensorLDR);   
+    lcd.print("%");
+    lcd.setCursor(0,3);
+    
+    lcd.print("A- EDITAR   * -SALIR");
+        
+    bool salir = false;
+    while(!salir)
     {
-      bool redibujar = true;
-      int numero = 0;
-      
-      while(redibujar)
-      {    
-        lcd.clear();
-        lcd.setCursor(0,0);
-        lcd.print("** LIMITE HUMEDAD **");
-        lcd.setCursor(0,1);
-        lcd.print("VALOR ACTUAL:  ");    
-        lcd.print(limiteSensorHumedad);        
-        lcd.setCursor(0,2);
-        lcd.print("NUEVO VALOR: ");        
-        lcd.setCursor(0,3);
-        lcd.print("           * - SALIR ");
-        lcd.setCursor(13,2);
-        lcd.print("__");
-        lcd.setCursor(13,2);
-        numero = PedirNumeroDosDigitos();
-        if(numero < 0)
-          redibujar = false;
-      }    
+      char customKey = LeerTecla();
+      if(customKey)
+       {
+        switch(customKey)
+        {
+          case '*':
+            salir = true;
+            redibujar = false;
+            break;
+          case 'A':
+            lcd.setCursor(0,2);
+            lcd.print("NUEVO VALOR: ");   
+            lcd.setCursor(13,2);
+            lcd.print("__");
+            lcd.setCursor(13,2);
+            limiteSensorLDR = PedirNumeroDosDigitos();
+            salir = true;
+            break;             
+        }
+      }
     }
+  }
+}
+
+
+void ConfigurarLluvia()
+{
+  bool redibujar = true;
+  int numero = 0;
+  
+  while(redibujar)
+  {    
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("LLUVIA: ");    
+    lcd.print(map(analogRead(pinAnalogicoSensorGotasDeLluvia),1023,0,0,100));
+    lcd.print("%");    
+    
+    lcd.setCursor(0,1);
+    lcd.print("LIMITE ACTUAL:  ");    
+    lcd.print(limiteSensorLluvia);   
+    lcd.print("%");
+    lcd.setCursor(0,3);
+    
+    lcd.print("A- EDITAR   * -SALIR");
+        
+    bool salir = false;
+    while(!salir)
+    {
+      char customKey = LeerTecla();
+      if(customKey)
+       {
+        switch(customKey)
+        {
+          case '*':
+            salir = true;
+            redibujar = false;
+            break;
+          case 'A':
+            lcd.setCursor(0,2);
+            lcd.print("NUEVO VALOR: ");   
+            lcd.setCursor(13,2);
+            lcd.print("__");
+            lcd.setCursor(13,2);
+            limiteSensorLluvia = PedirNumeroDosDigitos();
+            salir = true;
+            break;             
+        }
+      }
+    }
+  }
+}
 
 /*========================================================================
                     MENU CONFIGURACIONES
@@ -948,10 +1059,6 @@ int PedirNumeroDosDigitos()
       }
       key = LeerTecla();
    }  
-   
-   if(key == '*')
-    return -1;
-    
    return num;
 }
 
