@@ -367,9 +367,9 @@ void MostrarMenuPrincipal(){
     lcd.print("A- INICIAR / PARAR");
     lcd.setCursor(0,1);
     if(modoAutomatico)
-      lcd.print("B- MODO AUTOMATICO");
-    else
       lcd.print("B- MODO MANUAL");
+    else
+      lcd.print("B- MODO AUTOMATICO");
     lcd.setCursor(0,2);
     lcd.print("C- EXCEPCIONES");
     lcd.setCursor(0,3);
@@ -489,7 +489,7 @@ void LeerOpcionMenuPrincipal(char customKey)
       lcd.setCursor(0,1);
       lcd.print("|   PROGRAMACION   |");
       lcd.setCursor(0,2);
-      lcd.print("|  AUTO. INICIADA  |");      
+      lcd.print("| MANUAL ACTIVADA  |");      
       lcd.setCursor(0,3);
       lcd.print("--------------------");
       delay(3000);
@@ -756,7 +756,7 @@ void LeerOpcionMenuPrincipal(char customKey)
         lcd.print(" HORARIO CIRCUITO ");
         lcd.print(circuito);
         lcd.setCursor(1,1);
-        lcd.print("1. DESDE: ");    
+        lcd.print("A. DESDE: ");    
         if(horasExcepcion[circuito][HORA_DESDE] < 10) lcd.print('0');
         lcd.print(horasExcepcion[circuito][HORA_DESDE]);
         lcd.print(":");
@@ -764,7 +764,7 @@ void LeerOpcionMenuPrincipal(char customKey)
         lcd.print(horasExcepcion[circuito][MINUTO_DESDE]);
     
         lcd.setCursor(1,2);
-        lcd.print("2. HASTA: ");
+        lcd.print("B. HASTA: ");
         if(horasExcepcion[circuito][HORA_HASTA] < 10) lcd.print('0');
         lcd.print(horasExcepcion[circuito][HORA_HASTA]);
         lcd.print(":");
@@ -785,7 +785,7 @@ void LeerOpcionMenuPrincipal(char customKey)
                 salir = true;
                 redibujar = false;
                 break;
-              case '1':
+              case 'A':
                 lcd.setCursor(11,1);
                 lcd.print("__:__");
                 lcd.setCursor(11,1);
@@ -809,7 +809,7 @@ void LeerOpcionMenuPrincipal(char customKey)
                 salir = true;
                 break;
                 
-              case '2':
+              case 'B':
                 lcd.setCursor(11,2);
                 lcd.print("__:__");
                 lcd.setCursor(11,2);
