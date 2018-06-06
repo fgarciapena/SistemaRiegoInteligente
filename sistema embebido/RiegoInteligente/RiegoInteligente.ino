@@ -32,10 +32,12 @@ const int REANUDAR_PROGRAMACION = 3;
 const int EXCEPCIONES = 4;
 const int CONFIGURACIONES = 5;
 const int CONTRASENA = 6;
+const int PANTALLA_INFO = 99;
 
 int posicion = 0;
 int cursor = 0;
 static unsigned long UltimoRefresco = 0;
+static unsigned long UltimaTeclaApretada = 0;
 int menuActual = MENU_PRINCIPAL;
 
 
@@ -60,6 +62,7 @@ int limiteSensorLDR = 50; //indica nuestro limite que define la cantidad de luz
 int limiteSensorLluvia = 50;
 
 const int TIEMPO_REFRESCO_SENSORES = 3000; //ms
+const int TIEMPO_PANTALLA_INFO = 10000; //ms
 char codigoSecreto[4] ={'9','8','7','6'};
 /******************************************************************************************************************************************************* */
 /******************************************************************************************************************************************************* */
@@ -67,16 +70,9 @@ char codigoSecreto[4] ={'9','8','7','6'};
 
 
 Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
-byte testChar[8] = {
-  0b11111,
-  0b10001,
-  0b10001,
-  0b10001,
-  0b10001,
-  0b10001,  
-  0b10001,
-  0b11111
-};
+byte cuadrado[8] = {  0b11111,  0b10001,  0b10001,  0b10001,  0b10001,  0b10001,    0b10001,  0b11111};
+byte tilde[8] = {B00000,  B00001,  B00011,  B10110,  B11100,  B01000,  B00000,  B00000};
+byte cruz[8] = { B00000,  B10001,  B11011,  B01110,  B01110,  B11011,  B10001,  B00000};
 
 void setup () {
 
@@ -89,7 +85,9 @@ void setup () {
     while (1);
   } 
   
-   lcd.createChar(0, testChar); // Sends the custom char to lcd
+   lcd.createChar(0, cuadrado); // Sends the custom char to lcd
+   lcd.createChar(1, tilde);
+   lcd.createChar(2, cruz);
    lcd.init();
    lcd.init();
    lcd.backlight();
@@ -103,6 +101,7 @@ void setup () {
    
    MostrarPantallaContrasena();
    UltimoRefresco = 0;
+   
 
    //EJECUTAR SOLO LA PRIMERA VEZ
    //rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));    
@@ -119,8 +118,12 @@ void loop () {
   char tecla = LeerTecla();
   if(tecla)
   {
+    UltimaTeclaApretada = millis();
     switch(menuActual)
     {
+        case PANTALLA_INFO:
+          MostrarMenuPrincipal();  
+          break;
         case CONTRASENA:
           LeerTeclaContrasena(tecla);
           break;       
@@ -134,6 +137,26 @@ void loop () {
           LeerOpcionConfiguraciones(tecla);
           break;
    }  
+  }
+  else
+  {
+      if( menuActual != CONTRASENA &&  menuActual != PANTALLA_INFO && millis() - UltimaTeclaApretada >= TIEMPO_PANTALLA_INFO)
+      {
+          menuActual = PANTALLA_INFO;
+          UltimaTeclaApretada = millis();    
+          if( ! modoAutomatico)
+          {
+            lcd.clear();
+            lcd.setCursor(0,0); 
+            lcd.print("********************");
+            lcd.setCursor(0,1); 
+            lcd.print("*** MODO  MANUAL ***");
+            lcd.setCursor(0,2); 
+            lcd.print("***   ACTIVADO   ***");
+            lcd.setCursor(0,3); 
+            lcd.print("********************");               
+          }
+      }  
   }
    
   /*
@@ -177,11 +200,13 @@ void ChequearEjecucion()
     int luz;
     int lluvia;
     int humedad[CANTIDAD_CIRCUITOS];
+    bool excepcion[CANTIDAD_CIRCUITOS];
     
     /* FUNCION QUE SE EJECUTA CADA X SEGUNDOS */   
     if(millis() - UltimoRefresco >= TIEMPO_REFRESCO_SENSORES)
     {
        UltimoRefresco += TIEMPO_REFRESCO_SENSORES;
+      
       
       //TODO 1: CHEQUEAR LOS SENSORES E IMPLEMENTAR LA LOGICA DE LAS EXCEPCIONES!!!! 
       // 1.evaluar sensor de luz
@@ -192,37 +217,18 @@ void ChequearEjecucion()
         lluvia = map(analogRead(pinAnalogicoSensorGotasDeLluvia),1023,0,0,100); //mapea los valores en un rango de 0 a 100 (porcentaje)      
         luz = map(analogRead(pinAnalogicoSensorLDRLuz),0,1023,0,100); //mapea los valores en un rango de 0 a 100 (porcentaje)      
         
-        Serial.println("*******************************************************");
-        Serial.print("LUZ: ");
-        Serial.print(luz);
-        Serial.print(" (");
-        Serial.print(limiteSensorLDR);
-        Serial.print(")");
-        Serial.print("  |||  LLUVIA: ");
-        Serial.print(lluvia);
-        Serial.print(" (");
-        Serial.print(limiteSensorLluvia);
-        Serial.print(")");
-        Serial.println();
-        Serial.print("HUMEDAD:");
+        
         for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
         {  
           humedad[i] = map(analogRead(pinAnalogicoSensorHumedadInicio + i),1023,0,0,100);
-          Serial.print("["); 
-          Serial.print(i);
-          Serial.print("] ");    
-          Serial.print(humedad[i]);
-          Serial.print(" (");
-          Serial.print(limiteSensorHumedad);
-          Serial.print(") ||| ");    
-        }
-        Serial.println();
-        
+          
+        }      
         
         for(int i = 0;  i < CANTIDAD_CIRCUITOS ; i++)
         {            
           if(! hayExcepcionConfigurada(i))
           {
+            excepcion[i] =  false;
             if(humedad[i] < limiteSensorHumedad)
             {
               if(luz < limiteSensorLDR && lluvia < limiteSensorLluvia)    
@@ -237,14 +243,57 @@ void ChequearEjecucion()
           }
           else
           {
-            Serial.println("******* EXCEPCION DETECTADA ******** ");  
+            excepcion[i] =  true;
             DesactivarCircuito(i);           
           }
        }     
-       Serial.println("****************************************************");
-     }
-  }
+        if(menuActual == PANTALLA_INFO )
+        {
+          lcd.clear();
+          lcd.setCursor(0,0);
+          lcd.print("HUM: ");
+          for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
+          {  
+            if(humedad[i] < 10) lcd.print('0');
+            lcd.print(humedad[i]);
+            lcd.print("%  ");          
+          }      
+          
+          lcd.setCursor(0,1);
+          lcd.print("CIR:  ");
+          for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
+          {
+            if(funcionamientoCircuito[i])
+              lcd.print((char)1);
+            else
+              lcd.print((char)2);
+            lcd.print("   ");
+          }
+
+           lcd.setCursor(0,2);
+           lcd.print("EXC:  ");
+           for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
+           {
+              if(excepcion[i])
+                lcd.print((char)1);
+              else
+                lcd.print((char)2);
+              lcd.print("   ");
+           }
+
+          lcd.setCursor(0,3);
+          lcd.print("LUZ: ");
+          lcd.print(luz);
+          lcd.print("% ");
+          lcd.print("LLUVIA: ");
+          lcd.print(lluvia);
+          lcd.print("%");
+
+        }
+      }
+   }
 }
+
 
 void DesactivarCircuito(int circuito)
 {
@@ -487,9 +536,9 @@ void LeerOpcionMenuPrincipal(char customKey)
       lcd.setCursor(0,0);
       lcd.print("--------------------");
       lcd.setCursor(0,1);
-      lcd.print("|   PROGRAMACION   |");
+      lcd.print("|       MODO       |");
       lcd.setCursor(0,2);
-      lcd.print("| MANUAL ACTIVADA  |");      
+      lcd.print("| MANUAL ACTIVADO  |");      
       lcd.setCursor(0,3);
       lcd.print("--------------------");
       delay(3000);
@@ -503,9 +552,9 @@ void LeerOpcionMenuPrincipal(char customKey)
       lcd.setCursor(0,0);
       lcd.print("--------------------");
       lcd.setCursor(0,1);
-      lcd.print("|   PROGRAMACION   |");
+      lcd.print("|       MODO       |");
       lcd.setCursor(0,2);
-      lcd.print("| MANUAL  ACTIVADA |");
+      lcd.print("|  AUTO  ACTIVADO  |");
       lcd.setCursor(0,3);
       lcd.print("--------------------");
       delay(3000);
