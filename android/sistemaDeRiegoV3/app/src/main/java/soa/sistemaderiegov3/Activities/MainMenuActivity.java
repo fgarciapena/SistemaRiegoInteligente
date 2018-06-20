@@ -25,6 +25,17 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /*Called when the user taps the Configuracion Button*/
+    public void configurationMenu (View view){
+        Intent intent = new Intent(this, ConfigurationMenuActivity.class);
+        startActivity(intent);
+    }
+
+    public void exceptionConfigurationActivity (View view){
+        Intent intent = new Intent(this, ExceptionConfigurationActivity.class);
+        startActivity(intent);
+    }
+
     public void showModalForManualMode(View view) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         /*TODO: the button should have 2 possible values, "modo manual" or "modo automatico", it depends on the embebbed device actual status.this method must consider the both options
@@ -45,4 +56,6 @@ public class MainMenuActivity extends AppCompatActivity {
                 });
         alert.show();
     }
+
+
 }
