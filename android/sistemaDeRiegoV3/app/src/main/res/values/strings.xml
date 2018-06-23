@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sistema de Riego</string>
+    <string name="edit_messag">Enter a message</string>
+    <string name="button_sent">Send</string>
+    <string name="bind_device_bluetooth">Vincular con dispositivo</string>
+    <string name="start_option">A- Iniciar</string>
+    <string name="stop_option">A- Parar</string>
+    <string name="manual_mode">B- Modo Manual</string>
+    <string name="automatic_mode">B- Modo Automatico</string>
+    <string name="exceptions_option">C- Excepciones</string>
+    <string name="configuration_option">D- Configuracion</string>
+    <string name="circuit_1_option">Circuito 1</string>
+    <string name="circuit_2_option">Circuito 2</string>
+    <string name="circuit_3_option">Circuito 3</string>
+    <string name="send">Enviar</string>
+</resources>
