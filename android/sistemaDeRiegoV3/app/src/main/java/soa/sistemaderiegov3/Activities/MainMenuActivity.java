@@ -28,11 +28,20 @@ public class MainMenuActivity extends AppCompatActivity {
     /*Called when the user taps the Configuracion Button*/
     public void configurationMenu (View view){
         Intent intent = new Intent(this, ConfigurationMenuActivity.class);
+        String address = "";
+        Bundle extras;
+        //Obtengo el parametro, aplicando un Bundle, que me indica la Mac Adress del HC05
+        Intent extraIntent=getIntent();
+        if(intent.hasExtra("Direccion_Bluethoot")){
+            extras=intent.getExtras();
+            address= extras.getString("Direccion_Bluethoot");
+        }
+        intent.putExtra("Direccion_Bluethoot", address);
         startActivity(intent);
     }
 
-    public void exceptionConfigurationActivity (View view){
-        Intent intent = new Intent(this, ExceptionConfigurationActivity.class);
+    public void circuitSelection (View view){
+        Intent intent = new Intent(this, CircuitSelectionActivity.class);
         startActivity(intent);
     }
 
@@ -44,6 +53,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
+                String dataPackage = "CMD|AUTO|ON#";
                 //TODO: send to the embebbed device the message
             }
         });

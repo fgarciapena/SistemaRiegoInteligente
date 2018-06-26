@@ -24,17 +24,17 @@
     <Switch
         android:id="@+id/mondaySwitch"
         android:layout_width="313dp"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:text="Lunes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seeExceptionsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <Switch
         android:id="@+id/saturdaySwitch"
@@ -44,7 +44,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:text="Sabado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -74,7 +74,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="Viernes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -89,7 +89,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="Jueves"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -112,22 +112,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tuesdaySwitch" />
 
     <Button
-        android:id="@+id/seeExceptionsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/holo_blue_dark"
-        android:text="Ver excepciones"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/saveExceptionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -146,30 +130,36 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:text="Hora inicio"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/saveExceptionButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sundaySwitch" />
+        app:layout_constraintTop_toBottomOf="@+id/sundaySwitch"
+        app:layout_constraintVertical_bias="0.141" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="8dp"
         android:text="Hora fin"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/circuitSwitch2"
-        app:layout_constraintEnd_toStartOf="@+id/editText3" />
+        app:layout_constraintBottom_toTopOf="@+id/saveExceptionButton"
+        app:layout_constraintEnd_toStartOf="@+id/endHourValue"
+        app:layout_constraintTop_toBottomOf="@+id/sundaySwitch"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/startHourValue"
         android:layout_width="71dp"
-        android:layout_height="34dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -178,68 +168,60 @@
         android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/circuitSwitch2"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/saveExceptionButton"
         app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="0.607"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/sundaySwitch"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/endHourValue"
         android:layout_width="71dp"
-        android:layout_height="34dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/circuitSwitch3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sundaySwitch"
-        app:layout_constraintVertical_bias="0.64" />
-
-    <Switch
-        android:id="@+id/circuitSwitch1"
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Circuito 1"
-        app:layout_constraintBottom_toTopOf="@+id/saveExceptionButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sundaySwitch"
-        app:layout_constraintVertical_bias="0.92" />
-
-    <Switch
-        android:id="@+id/circuitSwitch2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="Circuito 2"
-        app:layout_constraintBottom_toTopOf="@+id/saveExceptionButton"
-        app:layout_constraintStart_toEndOf="@+id/circuitSwitch1"
-        app:layout_constraintTop_toBottomOf="@+id/sundaySwitch"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Switch
-        android:id="@+id/circuitSwitch3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Circuito 3"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="time"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/saveExceptionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sundaySwitch"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="CIrcuito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Mensaje"
+        app:layout_constraintBottom_toTopOf="@+id/saveExceptionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sundaySwitch"
+        app:layout_constraintVertical_bias="0.854" />
 
 </android.support.constraint.ConstraintLayout>
