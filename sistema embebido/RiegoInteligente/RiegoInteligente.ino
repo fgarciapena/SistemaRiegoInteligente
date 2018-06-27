@@ -1,6 +1,29 @@
-#include <Wire.h>
-#include <RTClib.h>
-#include<Keypad.h>
+/*
+  COMANDOS ENTRADA: 
+    CMD|STATUS#
+    CMD|CONFIG#
+    CMD|EXC#
+    
+    CMD|SET|PIN|XXXX#
+    CMD|SET|LUZ|XX|LLUVIA|XX|HUMEDAD1|XX|HUMEDAD2|XX|HUMEDAD3|XX#
+    CMD|SET|EXC|1|0,1,2,3,4,5,6|XX|YY|ZZ|WW#   (XX, CORRESPONDE A HORAS DESDE, YY CORRESPONDE A MINUTOS DESDE)
+    
+    CMD|AUTO|ON#
+    CMD|AUTO|OFF#
+        
+    CMD|INICIAR|1#
+    CMD|INICIAR|2#
+    CMD|INICIAR|3#
+    
+    CMD|PARAR|1#
+    CMD|PARAR|2#
+    CMD|PARAR|3#
+
+*/
+
+#include <Wire.h> //administra I2C
+#include <RTClib.h> //reloj
+#include<Keypad.h>   
 #include <LiquidCrystal_I2C.h>
 
 RTC_DS3231 rtc;
@@ -40,10 +63,35 @@ static unsigned long UltimoRefresco = 0;
 static unsigned long UltimaTeclaApretada = 0;
 int menuActual = MENU_PRINCIPAL;
 
+/* ENVIO BLUETOOTH */
+const char SEPARADOR = '|';
+const char FIN_LINEA = '#';
+String mensaje_aux = "";
+bool bluetoothActive = false;
+
+typedef struct 
+{
+   int luz;
+   int lluvia;
+   int humedad1;
+   int humedad2;
+   int humedad3;
+   bool Excepcion1;
+   bool Excepcion2;
+   bool Excepcion3;
+   bool ejecutando1;
+   bool ejecutando2;
+   bool ejecutando3;
+} DatosHistoricos;
+
+DatosHistoricos datosHistoricos[10];
+int ixDatosHistoricos = 0;
+static unsigned long UltimaLecturaHistorico = 0;
 
 /******************************************************************************************************************************************************* */
 /******************************************************************************************************************************************************* */
 /* ********************  SETEO INICIAL  *************************************** */
+// LOS PINES DEL BLUETOOTH HAY QUE CONECTARLOS (TX BT EN RX ARDUINO Y RX BT EN TX ARDUINO) Y LOS PINES SON LOS QUE REFERENCIAN A SERIAL 3...
 byte rowPins[ROWS] = {44, 42, 40, 38}; 
 byte colPins[COLS] = {36, 34, 32, 30}; 
 const int pinOutputDigitalReleeInicio = 8; //Desde este pin se van a conectar las salidas de los circuitos
@@ -58,10 +106,11 @@ int horasExcepcion[CANTIDAD_CIRCUITOS][4] ;
 bool funcionamientoCircuito[CANTIDAD_CIRCUITOS];
 
 int limiteSensorHumedad = 50; //indica el limite que define que haya o no humedad
-int limiteSensorLDR = 50; //indica nuestro limite que define la cantidad de luz
+int  limiteSensorLDR = 50; //indica nuestro limite que define la cantidad de luz
 int limiteSensorLluvia = 50;
 
 const int TIEMPO_REFRESCO_SENSORES = 3000; //ms
+const int TIEMPO_SALVAR_HISTORICO = 10000; //ms
 const int TIEMPO_PANTALLA_INFO = 10000; //ms
 char codigoSecreto[4] ={'9','8','7','6'};
 /******************************************************************************************************************************************************* */
@@ -77,9 +126,8 @@ byte cruz[8] = { B00000,  B10001,  B11011,  B01110,  B01110,  B11011,  B10001,  
 void setup () {
 
   Serial.begin(9600);
-
-  delay(3000); // wait for console opening
-
+  Serial3.begin(9600);
+  
   if (! rtc.begin()) {
     Serial.println("Couldn't find RTC");
     while (1);
@@ -114,83 +162,437 @@ void setup () {
 }
 
 void loop () {
-
-  char tecla = LeerTecla();
-  if(tecla)
+  if(!bluetoothActive)
   {
-    UltimaTeclaApretada = millis();
-    switch(menuActual)
+    char tecla = LeerTecla();
+    if(tecla)
     {
-        case PANTALLA_INFO:
-          MostrarMenuPrincipal();  
-          break;
-        case CONTRASENA:
-          LeerTeclaContrasena(tecla);
-          break;       
-        case MENU_PRINCIPAL:
-          LeerOpcionMenuPrincipal(tecla);
-          break;       
-        case EXCEPCIONES:
-          LeerOpcionExcepciones(tecla);
-          break;
-        case CONFIGURACIONES:
-          LeerOpcionConfiguraciones(tecla);
-          break;
-   }  
+      UltimaTeclaApretada = millis();
+      switch(menuActual)
+      {
+          case PANTALLA_INFO:
+            MostrarMenuPrincipal();  
+            break;
+          case CONTRASENA:
+            LeerTeclaContrasena(tecla);
+            break;       
+          case MENU_PRINCIPAL:
+            LeerOpcionMenuPrincipal(tecla);
+            break;       
+          case EXCEPCIONES:
+            LeerOpcionExcepciones(tecla);
+            break;
+          case CONFIGURACIONES:
+            LeerOpcionConfiguraciones(tecla);
+            break;
+      }  
+    }
+    else
+    {
+        if( menuActual != CONTRASENA &&  menuActual != PANTALLA_INFO && millis() - UltimaTeclaApretada >= TIEMPO_PANTALLA_INFO)
+        {
+            menuActual = PANTALLA_INFO;
+            UltimaTeclaApretada = millis();    
+            if( ! modoAutomatico)
+            {
+              lcd.clear();
+              lcd.setCursor(0,0); 
+              lcd.print("********************");
+              lcd.setCursor(0,1); 
+              lcd.print("*** MODO  MANUAL ***");
+              lcd.setCursor(0,2); 
+              lcd.print("***   ACTIVADO   ***");
+              lcd.setCursor(0,3); 
+              lcd.print("********************");               
+            }
+        }  
+    }
   }
   else
   {
-      if( menuActual != CONTRASENA &&  menuActual != PANTALLA_INFO && millis() - UltimaTeclaApretada >= TIEMPO_PANTALLA_INFO)
-      {
-          menuActual = PANTALLA_INFO;
-          UltimaTeclaApretada = millis();    
-          if( ! modoAutomatico)
-          {
-            lcd.clear();
-            lcd.setCursor(0,0); 
-            lcd.print("********************");
-            lcd.setCursor(0,1); 
-            lcd.print("*** MODO  MANUAL ***");
-            lcd.setCursor(0,2); 
-            lcd.print("***   ACTIVADO   ***");
-            lcd.setCursor(0,3); 
-            lcd.print("********************");               
-          }
-      }  
+       VerificarBluetooth();
   }
-   
-  /*
+}
+ 
+char LeerTecla()
+{
+  char tecla = customKeypad.getKey();
+  VerificarBluetooth();  
+  ChequearEjecucion();
+  return tecla;
+} 
+
+void VerificarBluetooth()
+{
+  if(Serial3.available())
+  {
+    bluetoothActive =  true;    
+    String mensaje = extraer_mensaje();
+    if(mensaje != "")
+    {
+      lcd.clear();
+      lcd.setCursor(1,0);
+      lcd.print("**** BLUETOOTH ****");  
+      menuActual = MENU_PRINCIPAL;
+      if(getValor(mensaje, SEPARADOR, 0) == "CMD")
+      {
+        String comando = getValor(mensaje,SEPARADOR,1);
+        if(comando == "STATUS"){
+          SendStatusInfo();
+        } if(comando == "HISTORIA"){
+          SendHistoricos();
+        } else if(comando == "CONFIG"){
+          SendConfigInfo();
+        }else if (comando = "EXC"){
+          SendExcepcionInfo();
+        }else if (comando = "SET"){
+          ProcesarSetCommand(mensaje);
+        }else if (comando = "AUTO"){
+          ProcesarAutoCommand(mensaje);
+        }else if (comando = "INICIAR"){
+          ProcesarIniciarCommand(mensaje);
+        }else if (comando = "PARAR"){
+          ProcesarIniciarCommand(mensaje);
+        }else{
+          Serial.println("***COMANDO DESCONOCIDO***");
+        }
+      }
+    }
+    bluetoothActive =  false;  
+  }
+}
+
+void ProcesarPararCommand(String mensaje){
+    if(!modoAutomatico){
+      String circuito = getValor(mensaje, SEPARADOR, 2);
+      int numeroCircuito = circuito.toInt() - 1;
+      if(numeroCircuito < CANTIDAD_CIRCUITOS ){
+        funcionamientoCircuito[numeroCircuito] = false;
+        Serial.print("PARAR CIRCUITO ");
+        Serial.println(circuito);
+      }
+    }
+    else{
+        Serial.println("*** NO SE PUEDE EJECUTAR EL PARAMETRO INICUAR PORQUE EL MODO AUTOMATICO ESTA ACTIVADO");
+    }
+}
+
+void ProcesarIniciarCommand(String mensaje){
+    if(!modoAutomatico){
+      String circuito = getValor(mensaje, SEPARADOR, 2);
+      int numeroCircuito = circuito.toInt() - 1;
+      if(numeroCircuito < CANTIDAD_CIRCUITOS ){
+        funcionamientoCircuito[numeroCircuito] = true;
+        Serial.print("INICIAR CIRCUITO ");
+        Serial.println(circuito);
+        }
+    }
+    else{
+        Serial.println("*** NO SE PUEDE EJECUTAR EL PARAMETRO PARAR PORQUE EL MODO AUTOMATICO ESTA ACTIVADO");
+    }
+}
+
+void ProcesarAutoCommand(String mensaje){
+    String accion = getValor(mensaje, SEPARADOR, 2);
+    if(accion == "ON"){
+      modoAutomatico =  true;
+    }else if(accion == "OFF"){
+      modoAutomatico =  false;
+    }
+    else{
+      Serial.print("PARAMETRO AUTO DESCONOCIDO: ");
+      Serial.println(accion);
+    }
+}
+
+void ProcesarSetCommand(String mensaje){
+  String accion = getValor(mensaje, SEPARADOR, 2);
+  if(accion == "PIN"){    
+    String pin = getValor(mensaje, SEPARADOR, 3);
+    char copy[4];
+    pin.toCharArray(copy, 4);
+    for(int i = 0 ; i < 4 ; i++)
+    {
+      codigoSecreto[i] = copy[i];
+    }
+    Serial.print("Nueva Pass: ");
+    Serial.println(codigoSecreto);
   
-    DateTime now = rtc.now();
+  }else if(accion == "LUZ"){    
+    String valorLuz = getValor(mensaje, SEPARADOR, 3);
+    String valorLluvia = getValor(mensaje, SEPARADOR, 5);
+    String valorHumedad1 = getValor(mensaje, SEPARADOR, 7);
+    String valorHumedad2 = getValor(mensaje, SEPARADOR, 9);
+    String valorHumedad3 = getValor(mensaje, SEPARADOR, 11);
 
-     lcd.print(daysOfTheWeek[now.dayOfTheWeek()]);
+    limiteSensorHumedad = valorHumedad1.toInt();
+    limiteSensorLDR = valorLuz.toInt();
+    limiteSensorLluvia = valorLluvia.toInt();
+    Serial.println("Parametros modificados: ");
+    Serial.print("LUZ: ");
+    Serial.println(valorLuz);
+    Serial.print("LLUVIA: ");
+    Serial.println(valorLluvia);
+    Serial.print("HUMEDAD: ");
+    Serial.println(valorHumedad1);    
+  }else if(accion == "EXC"){
+    String strCircuito = getValor(mensaje, SEPARADOR, 3);
+    int numeroCircuito = strCircuito.toInt() - 1;
+    String dias = getValor(mensaje, SEPARADOR, 4);
+    for(int y = 0 ; y > 7; y++)
+    {
+      if(dias.indexOf(String(y)) > 0){
+        diasExcepcion[numeroCircuito][y]= true;
+      }      
+      else{
+        diasExcepcion[numeroCircuito][y]= false;
+      }
+    }
+    String hora_desde = getValor(mensaje, SEPARADOR, 5);
+    String minuto_desde = getValor(mensaje, SEPARADOR, 6);
+    String hora_hasta = getValor(mensaje, SEPARADOR, 7);
+    String minuto_hasta = getValor(mensaje, SEPARADOR, 8);
+    horasExcepcion[numeroCircuito][HORA_DESDE] = hora_desde.toInt();
+    horasExcepcion[numeroCircuito][MINUTO_DESDE] = minuto_desde.toInt();
+    horasExcepcion[numeroCircuito][HORA_HASTA] = hora_hasta.toInt();
+    horasExcepcion[numeroCircuito][MINUTO_HASTA] = minuto_hasta.toInt();
 
-    lcd.clear();
+    Serial.println("Parametros modificados: ");
+    Serial.print("CIRCUITO: ");
+    Serial.println(numeroCircuito);
+    Serial.print("DIAS: ");
+    Serial.println(dias);
+    Serial.println("EXCEPCIONES: ");
+    Serial.print("hora desde: ");
+    Serial.println(hora_desde); 
+    Serial.print("minutos desde: ");
+    Serial.println(minuto_desde); 
+    Serial.print("hora hasta: ");
+    Serial.println(hora_hasta); 
+    Serial.print("minutos hasta: ");
+    Serial.println(minuto_hasta);    
+  }
+  else {
+    Serial.println("ACCION DESCONOCIDA");
+  }    
+}
 
-    daysOfTheWeek[now.dayOfTheWeek()]
-    lcd.print(now.year(), DEC);
-    lcd.print('/');
-    lcd.print(now.month(), DEC);
-    lcd.print('/');
-    lcd.print(now.day(), DEC);
-    lcd.print(' ');
-    lcd.print(now.hour(), DEC);
-    lcd.print(':');
-    lcd.print(now.minute(), DEC);
-    lcd.print(':');
-    lcd.print(now.second(), DEC);
+void SendHistoricos(){
+    
+    int indice = 1;
+    for(int i = (ixDatosHistoricos-1); i >= 0; i--)
+    {
+      EnvioHistorico(datosHistoricos[i], indice);
+      indice++;
+    }
+    for(int y = 9; y >= ixDatosHistoricos; y--)
+    {
+      EnvioHistorico(datosHistoricos[y], indice);
+      indice++;
+    }
+}
+void EnvioHistorico(DatosHistoricos dato, int indice)
+{
+      String mensaje = "";
+      mensaje.concat("CMD");  
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat("HISTORIA");  
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(indice);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.luz);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.lluvia);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.humedad1);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.humedad2);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.humedad3);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.Excepcion1);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.Excepcion2);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.Excepcion3);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.ejecutando1);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.ejecutando2);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.ejecutando3);
+      mensaje.concat(FIN_LINEA);
+            
+      writeString(mensaje);  
+          
+      Serial.print("ENVIO: ");
+      Serial.println(mensaje);
+    
+      delay(100);
+}
 
-    */
+void SendStatusInfo(){
+   int lluvia = map(analogRead(pinAnalogicoSensorGotasDeLluvia),1023,0,0,100); //mapea los valores en un rango de 0 a 100 (porcentaje)      
+   int luz = map(analogRead(pinAnalogicoSensorLDRLuz),0,1023,0,100); //mapea los valores en un rango de 0 a 100 (porcentaje)      
 
-       
+    String mensaje = "";
+    mensaje.concat("CMD");  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat("STGE");  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat(luz);  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat(lluvia);  
+    mensaje.concat(SEPARADOR);  
+    if(modoAutomatico)
+      mensaje.concat("SI");  
+    else
+      mensaje.concat("NO");  
+    mensaje.concat(FIN_LINEA);  
+    
+    writeString(mensaje);  
+    
+    Serial.print("ENVIO: ");
+    Serial.println(mensaje);
+    
+    delay(100);
+    for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
+    {  
+      mensaje = "";
+      mensaje.concat("CMD");  
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(i+1);  
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(map(analogRead(pinAnalogicoSensorHumedadInicio + i),1023,0,0,100));  
+      mensaje.concat(SEPARADOR);  
+       if(funcionamientoCircuito[i])
+        mensaje.concat("SI");  
+      else
+        mensaje.concat("NO"); 
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(horasExcepcion[i][HORA_DESDE]);  
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(horasExcepcion[i][MINUTO_DESDE]);  
+      mensaje.concat(SEPARADOR); 
+      mensaje.concat(horasExcepcion[i][HORA_HASTA]);  
+      mensaje.concat(SEPARADOR); 
+      mensaje.concat(horasExcepcion[i][MINUTO_HASTA]);  
+      mensaje.concat(FIN_LINEA);  
+      
+      writeString(mensaje);
+    
+      Serial.print("ENVIO: ");
+      Serial.println(mensaje);
+      
+      delay(500);    
+    }    
 }
 
 
-char LeerTecla()
-{
-  ChequearEjecucion();
-  return  customKeypad.getKey();  
-} 
+void SendConfigInfo(){
+  String mensaje = "";
+  mensaje.concat("CMD");  
+  mensaje.concat(SEPARADOR);  
+  mensaje.concat("CONFIG");  
+  mensaje.concat(SEPARADOR);  
+  mensaje.concat(limiteSensorLDR);  
+  mensaje.concat(SEPARADOR);  
+  mensaje.concat(limiteSensorLluvia);  
+  mensaje.concat(SEPARADOR);  
+  mensaje.concat(codigoSecreto);  
+  mensaje.concat(FIN_LINEA);  
+
+   writeString(mensaje);
+
+  Serial.print("ENVIO: ");
+  Serial.println(mensaje);
+
+  delay(500);  
+
+  for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
+  { 
+    mensaje = "";
+    mensaje.concat("CMD");  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat(i+1);  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat(limiteSensorHumedad);  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat(horasExcepcion[i][HORA_DESDE]);  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat(horasExcepcion[i][MINUTO_DESDE]);  
+    mensaje.concat(SEPARADOR); 
+    mensaje.concat(horasExcepcion[i][HORA_HASTA]);  
+    mensaje.concat(SEPARADOR); 
+    mensaje.concat(horasExcepcion[i][MINUTO_HASTA]);  
+    mensaje.concat(FIN_LINEA);        
+    
+    writeString(mensaje);
+  
+    Serial.print("ENVIO: ");
+    Serial.println(mensaje);
+  
+    delay(500);  
+  }
+}
+
+
+
+void SendExcepcionInfo(){
+  for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
+  {
+    String mensaje = "";
+    mensaje.concat("CMD");  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat("EXC");  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat(i+1);  
+    mensaje.concat(SEPARADOR);  
+    String dias = "";
+    for(int y = 0 ; y < 7; y++)
+    {
+      if(diasExcepcion[i][y]){
+        dias.concat(y);
+        dias.concat(",");
+      }      
+    }
+    mensaje.concat(dias); 
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat(horasExcepcion[i][HORA_DESDE]);  
+    mensaje.concat(SEPARADOR);  
+    mensaje.concat(horasExcepcion[i][MINUTO_DESDE]);  
+    mensaje.concat(SEPARADOR); 
+    mensaje.concat(horasExcepcion[i][HORA_HASTA]);  
+    mensaje.concat(SEPARADOR); 
+    mensaje.concat(horasExcepcion[i][MINUTO_HASTA]);  
+    mensaje.concat(FIN_LINEA);  
+  
+    writeString(mensaje);
+  
+    Serial.print("ENVIO: ");
+    Serial.println(mensaje);
+  
+    delay(500); 
+  } 
+}
+
+
+String extraer_mensaje(){ //
+  char character;  
+  String _return = "";
+  character = Serial3.read();
+  if(character != FIN_LINEA){
+    mensaje_aux.concat(character);
+  }
+  else{
+    _return = mensaje_aux;
+    mensaje_aux = "";
+    Serial.print("RECIBO: ");
+    Serial.println(_return);
+  }
+  return _return;
+}
+
 
 
 void ChequearEjecucion()
@@ -201,6 +603,7 @@ void ChequearEjecucion()
     int lluvia;
     int humedad[CANTIDAD_CIRCUITOS];
     bool excepcion[CANTIDAD_CIRCUITOS];
+    DatosHistoricos historico;
     
     /* FUNCION QUE SE EJECUTA CADA X SEGUNDOS */   
     if(millis() - UltimoRefresco >= TIEMPO_REFRESCO_SENSORES)
@@ -216,13 +619,18 @@ void ChequearEjecucion()
   
         lluvia = map(analogRead(pinAnalogicoSensorGotasDeLluvia),1023,0,0,100); //mapea los valores en un rango de 0 a 100 (porcentaje)      
         luz = map(analogRead(pinAnalogicoSensorLDRLuz),0,1023,0,100); //mapea los valores en un rango de 0 a 100 (porcentaje)      
-        
+
+        historico.luz = luz;
+        historico.lluvia = lluvia;
         
         for(int i = 0 ;  i < CANTIDAD_CIRCUITOS ; i++)
         {  
           humedad[i] = map(analogRead(pinAnalogicoSensorHumedadInicio + i),1023,0,0,100);
-          
         }      
+
+        historico.humedad1=humedad[0];
+        historico.humedad2=humedad[1];
+        historico.humedad3=humedad[2];
         
         for(int i = 0;  i < CANTIDAD_CIRCUITOS ; i++)
         {            
@@ -246,8 +654,19 @@ void ChequearEjecucion()
             excepcion[i] =  true;
             DesactivarCircuito(i);           
           }
-       }     
-        if(menuActual == PANTALLA_INFO )
+       }   
+       
+       historico.Excepcion1 = excepcion[0];
+       historico.Excepcion2 = excepcion[1];
+       historico.Excepcion3 = excepcion[2];
+
+       historico.ejecutando1 = funcionamientoCircuito[0];
+       historico.ejecutando2 = funcionamientoCircuito[1];
+       historico.ejecutando3 = funcionamientoCircuito[2];
+
+       ProcesarHistorico(historico);
+         
+       if(menuActual == PANTALLA_INFO )
         {
           lcd.clear();
           lcd.setCursor(0,0);
@@ -292,6 +711,18 @@ void ChequearEjecucion()
         }
       }
    }
+}
+
+void ProcesarHistorico(DatosHistoricos historico)
+{
+  if(millis() - UltimaLecturaHistorico  >= TIEMPO_SALVAR_HISTORICO)
+  {
+     UltimaLecturaHistorico  += TIEMPO_SALVAR_HISTORICO;
+     datosHistoricos[ixDatosHistoricos] = historico;
+     ixDatosHistoricos++;
+     if(ixDatosHistoricos == 10)
+      ixDatosHistoricos = 0;
+  }
 }
 
 
@@ -885,8 +1316,7 @@ void LeerOpcionMenuPrincipal(char customKey)
             }
           }
         }    
-      }
-     
+      }     
     }
 
 /*========================================================================
@@ -1111,11 +1541,61 @@ int PedirNumeroDosDigitos()
    return num;
 }
 
+
+String getValor(String data, char separator, int index)
+{
+    int found = 0;
+    int strIndex[] = { 0, -1 };
+    int maxIndex = data.length() - 1;
+
+    for (int i = 0; i <= maxIndex && found <= index; i++) {
+        if (data.charAt(i) == separator || i == maxIndex) {
+            found++;
+            strIndex[0] = strIndex[1] + 1;
+            strIndex[1] = (i == maxIndex) ? i+1 : i;
+        }
+    }
+    String _return = "";
+    if (found > index){
+      _return = data.substring(strIndex[0], strIndex[1]); 
+      _return.replace("#","");     
+    }    
+    
+    return _return ;
+}
+
+void writeString(String stringData) { // Used to serially push out a String with Serial.write()
+  for (int i = 0; i < stringData.length(); i++)  {
+    Serial3.write(stringData[i]);   
+  }
+}
+
 /*========================================================================
                     FIN FUNCIONES EXTRA
 ========================================================================*/
 
+ /*
+  
+    DateTime now = rtc.now();
 
+     lcd.print(daysOfTheWeek[now.dayOfTheWeek()]);
+
+    lcd.clear();
+
+    daysOfTheWeek[now.dayOfTheWeek()]
+    lcd.print(now.year(), DEC);
+    lcd.print('/');
+    lcd.print(now.month(), DEC);
+    lcd.print('/');
+    lcd.print(now.day(), DEC);
+    lcd.print(' ');
+    lcd.print(now.hour(), DEC);
+    lcd.print(':');
+    lcd.print(now.minute(), DEC);
+    lcd.print(':');
+    lcd.print(now.second(), DEC);
+
+    */
 
 
 
