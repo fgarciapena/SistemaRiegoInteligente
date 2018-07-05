@@ -19,6 +19,13 @@
     CMD|PARAR|2#
     CMD|PARAR|3#
 
+    CMD|HISTORIA#
+    CMD|HISTORIA|X|luz|lluvia|humedad1|humedad1|humedad3|expecion1|excepcion1|excepcion3|ejecutando1|ejecutando2|ejecutando3#
+        X=numero de lectura (1,2,3,4,5,6,7,8,9,10)
+        lluvia, luz, humedad1, humedad2, humedad3 = numeros que representan los valores actiales
+        excepcion1, excepcion2, excepcion3 = 1 o 0 (depende si esta dentro de una excepcion o no)
+        ejecutando1, ejecutando2, ejecutando3 = 1 o 0 (dependiendo si se esta ejecutando o no)
+
 */
 
 #include <Wire.h> //administra I2C
@@ -82,6 +89,7 @@ typedef struct
    bool ejecutando1;
    bool ejecutando2;
    bool ejecutando3;
+   String hora;
 } DatosHistoricos;
 
 DatosHistoricos datosHistoricos[10];
@@ -91,7 +99,7 @@ static unsigned long UltimaLecturaHistorico = 0;
 /******************************************************************************************************************************************************* */
 /******************************************************************************************************************************************************* */
 /* ********************  SETEO INICIAL  *************************************** */
-// LOS PINES DEL BLUETOOTH HAY QUE CONECTARLOS (TX BT EN RX ARDUINO Y RX BT EN TX ARDUINO) Y LOS PINES SON LOS QUE REFERENCIAN A SERIAL 3...
+// LOS PINES DEL BLUETOOTH HAY QUE CONECTARLOS EN SERIAL 3 (TX BT EN RX ARDUINO Y RX BT EN TX ARDUINO) Y LOS PINES SON LOS QUE REFERENCIAN A SERIAL 3...
 byte rowPins[ROWS] = {44, 42, 40, 38}; 
 byte colPins[COLS] = {36, 34, 32, 30}; 
 const int pinOutputDigitalReleeInicio = 8; //Desde este pin se van a conectar las salidas de los circuitos
@@ -113,6 +121,8 @@ const int TIEMPO_REFRESCO_SENSORES = 3000; //ms
 const int TIEMPO_SALVAR_HISTORICO = 10000; //ms
 const int TIEMPO_PANTALLA_INFO = 10000; //ms
 char codigoSecreto[4] ={'9','8','7','6'};
+
+
 /******************************************************************************************************************************************************* */
 /******************************************************************************************************************************************************* */
 /******************************************************************************************************************************************************* */
@@ -162,8 +172,6 @@ void setup () {
 }
 
 void loop () {
-  if(!bluetoothActive)
-  {
     char tecla = LeerTecla();
     if(tecla)
     {
@@ -207,11 +215,6 @@ void loop () {
             }
         }  
     }
-  }
-  else
-  {
-       VerificarBluetooth();
-  }
 }
  
 char LeerTecla()
@@ -228,15 +231,16 @@ void VerificarBluetooth()
   {
     bluetoothActive =  true;    
     String mensaje = extraer_mensaje();
+    Serial.println("antes mensaje");
     if(mensaje != "")
     {
-      lcd.clear();
-      lcd.setCursor(1,0);
-      lcd.print("**** BLUETOOTH ****");  
-      menuActual = MENU_PRINCIPAL;
+      Serial.println(getValor(mensaje, SEPARADOR, 0));
       if(getValor(mensaje, SEPARADOR, 0) == "CMD")
       {
+        Serial.println("LEYO CMD");
         String comando = getValor(mensaje,SEPARADOR,1);
+        Serial.println("VALOR");
+        Serial.println(comando);
         if(comando == "STATUS"){
           SendStatusInfo();
         } if(comando == "HISTORIA"){
@@ -421,6 +425,8 @@ void EnvioHistorico(DatosHistoricos dato, int indice)
       mensaje.concat(dato.ejecutando2);
       mensaje.concat(SEPARADOR);  
       mensaje.concat(dato.ejecutando3);
+      mensaje.concat(SEPARADOR);  
+      mensaje.concat(dato.hora);
       mensaje.concat(FIN_LINEA);
             
       writeString(mensaje);  
@@ -579,7 +585,7 @@ void SendExcepcionInfo(){
 
 String extraer_mensaje(){ //
   char character;  
-  String _return = "";
+  String _return = "";  
   character = Serial3.read();
   if(character != FIN_LINEA){
     mensaje_aux.concat(character);
@@ -590,6 +596,7 @@ String extraer_mensaje(){ //
     Serial.print("RECIBO: ");
     Serial.println(_return);
   }
+
   return _return;
 }
 
@@ -663,6 +670,13 @@ void ChequearEjecucion()
        historico.ejecutando1 = funcionamientoCircuito[0];
        historico.ejecutando2 = funcionamientoCircuito[1];
        historico.ejecutando3 = funcionamientoCircuito[2];
+       
+       DateTime now = rtc.now();
+       historico.hora.concat(now.hour());
+       historico.hora.concat(':');
+       historico.hora.concat(now.minute());
+       historico.hora.concat(':');
+       historico.hora.concat(now.second());
 
        ProcesarHistorico(historico);
          
