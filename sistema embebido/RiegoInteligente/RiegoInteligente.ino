@@ -256,7 +256,7 @@ void VerificarBluetooth()
         }else if (comando = "INICIAR"){
           ProcesarIniciarCommand(mensaje);
         }else if (comando = "PARAR"){
-          ProcesarIniciarCommand(mensaje);
+          ProcesarPararCommand(mensaje);
         }else{
           Serial.println("***COMANDO DESCONOCIDO***");
         }
@@ -322,7 +322,7 @@ void ProcesarSetCommand(String mensaje){
     Serial.print("Nueva Pass: ");
     Serial.println(codigoSecreto);
   
-  }else if(accion == "LUZ"){    
+  }else if(accion == "LIMITE"){    
     String valorLuz = getValor(mensaje, SEPARADOR, 3);
     String valorLluvia = getValor(mensaje, SEPARADOR, 5);
     String valorHumedad1 = getValor(mensaje, SEPARADOR, 7);
@@ -414,18 +414,44 @@ void EnvioHistorico(DatosHistoricos dato, int indice)
       mensaje.concat(SEPARADOR);  
       mensaje.concat(dato.humedad3);
       mensaje.concat(SEPARADOR);  
-      mensaje.concat(dato.Excepcion1);
+      if(dato.Excepcion1)
+        mensaje.concat("SI");  
+      else
+        mensaje.concat("NO"); 
+        
       mensaje.concat(SEPARADOR);  
-      mensaje.concat(dato.Excepcion2);
+      
+      if(dato.Excepcion2)
+        mensaje.concat("SI");  
+      else
+        mensaje.concat("NO"); 
+        
       mensaje.concat(SEPARADOR);  
-      mensaje.concat(dato.Excepcion3);
+      
+      if(dato.Excepcion3)
+        mensaje.concat("SI");  
+      else
+        mensaje.concat("NO"); 
+        
       mensaje.concat(SEPARADOR);  
-      mensaje.concat(dato.ejecutando1);
+       if(dato.ejecutando1)
+        mensaje.concat("SI");  
+      else
+        mensaje.concat("NO"); 
+        
       mensaje.concat(SEPARADOR);  
-      mensaje.concat(dato.ejecutando2);
+       if(dato.ejecutando2)
+        mensaje.concat("SI");  
+      else
+        mensaje.concat("NO");         
       mensaje.concat(SEPARADOR);  
-      mensaje.concat(dato.ejecutando3);
+      
+      if(dato.ejecutando3)
+        mensaje.concat("SI");  
+      else
+        mensaje.concat("NO"); 
       mensaje.concat(SEPARADOR);  
+      
       mensaje.concat(dato.hora);
       mensaje.concat(FIN_LINEA);
             
@@ -444,7 +470,7 @@ void SendStatusInfo(){
     String mensaje = "";
     mensaje.concat("CMD");  
     mensaje.concat(SEPARADOR);  
-    mensaje.concat("STGE");  
+    mensaje.concat("STATUS");  
     mensaje.concat(SEPARADOR);  
     mensaje.concat(luz);  
     mensaje.concat(SEPARADOR);  
@@ -476,6 +502,16 @@ void SendStatusInfo(){
       else
         mensaje.concat("NO"); 
       mensaje.concat(SEPARADOR);  
+       String dias = "";
+      for(int y = 0 ; y < 7; y++)
+      {
+        if(diasExcepcion[i][y]){
+          dias.concat(y);
+          dias.concat(",");
+        }      
+      }
+      mensaje.concat(dias); 
+      mensaje.concat(SEPARADOR); 
       mensaje.concat(horasExcepcion[i][HORA_DESDE]);  
       mensaje.concat(SEPARADOR);  
       mensaje.concat(horasExcepcion[i][MINUTO_DESDE]);  
@@ -524,6 +560,16 @@ void SendConfigInfo(){
     mensaje.concat(SEPARADOR);  
     mensaje.concat(limiteSensorHumedad);  
     mensaje.concat(SEPARADOR);  
+     String dias = "";
+    for(int y = 0 ; y < 7; y++)
+    {
+      if(diasExcepcion[i][y]){
+        dias.concat(y);
+        dias.concat(",");
+      }      
+    }
+    mensaje.concat(dias); 
+    mensaje.concat(SEPARADOR); 
     mensaje.concat(horasExcepcion[i][HORA_DESDE]);  
     mensaje.concat(SEPARADOR);  
     mensaje.concat(horasExcepcion[i][MINUTO_DESDE]);  
