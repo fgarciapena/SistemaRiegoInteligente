@@ -73,6 +73,7 @@ int menuActual = MENU_PRINCIPAL;
 /* ENVIO BLUETOOTH */
 const char SEPARADOR = '|';
 const char FIN_LINEA = '#';
+String FIN_MENSAJE = "?";
 String mensaje_aux = "";
 bool bluetoothActive = false;
 
@@ -118,10 +119,11 @@ int  limiteSensorLDR = 50; //indica nuestro limite que define la cantidad de luz
 int limiteSensorLluvia = 50;
 
 const int TIEMPO_REFRESCO_SENSORES = 3000; //ms
-const int TIEMPO_SALVAR_HISTORICO = 10000; //ms
+const int TIEMPO_SALVAR_HISTORICO = 30000; //ms
 const int TIEMPO_PANTALLA_INFO = 10000; //ms
 char codigoSecreto[4] ={'9','8','7','6'};
 
+int ledPWM = 4;
 
 /******************************************************************************************************************************************************* */
 /******************************************************************************************************************************************************* */
@@ -169,6 +171,7 @@ void setup () {
    {
       pinMode(pinOutputDigitalReleeInicio + i, OUTPUT);
    }   
+    
 }
 
 void loop () {
@@ -461,6 +464,8 @@ void EnvioHistorico(DatosHistoricos dato, int indice)
       Serial.println(mensaje);
     
       delay(100);
+      writeString(FIN_MENSAJE);  
+      
 }
 
 void SendStatusInfo(){
@@ -526,8 +531,9 @@ void SendStatusInfo(){
       Serial.print("ENVIO: ");
       Serial.println(mensaje);
       
-      delay(500);    
+      delay(100);    
     }    
+    writeString(FIN_MENSAJE);
 }
 
 
@@ -583,8 +589,8 @@ void SendConfigInfo(){
   
     Serial.print("ENVIO: ");
     Serial.println(mensaje);
-  
-    delay(500);  
+
+    writeString(FIN_MENSAJE);
   }
 }
 
@@ -624,7 +630,7 @@ void SendExcepcionInfo(){
     Serial.print("ENVIO: ");
     Serial.println(mensaje);
   
-    delay(500); 
+    writeString(FIN_MENSAJE);
   } 
 }
 
@@ -680,6 +686,8 @@ void ChequearEjecucion()
         {  
           humedad[i] = map(analogRead(pinAnalogicoSensorHumedadInicio + i),1023,0,0,100);
         }      
+
+        analogWrite(ledPWM, map(humedad[0],0,100,0,255));
 
         historico.humedad1=humedad[0];
         historico.humedad2=humedad[1];
@@ -1624,12 +1632,20 @@ String getValor(String data, char separator, int index)
     return _return ;
 }
 
+
 void writeString(String stringData) { // Used to serially push out a String with Serial.write()
   for (int i = 0; i < stringData.length(); i++)  {
     Serial3.write(stringData[i]);   
+    delay(50);
   }
 }
-
+/*
+void writeString(String toSend){
+   char payload[toSend.length()+1];
+   toSend.toCharArray(payload, sizeof(payload));
+   Serial3.write((uint8_t *)payload,sizeof(payload));
+}
+*/
 /*========================================================================
                     FIN FUNCIONES EXTRA
 ========================================================================*/
