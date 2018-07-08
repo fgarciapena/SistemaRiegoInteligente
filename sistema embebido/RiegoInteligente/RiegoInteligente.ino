@@ -327,10 +327,10 @@ void ProcesarSetCommand(String mensaje){
   
   }else if(accion == "LIMITE"){    
     String valorLuz = getValor(mensaje, SEPARADOR, 3);
-    String valorLluvia = getValor(mensaje, SEPARADOR, 5);
-    String valorHumedad1 = getValor(mensaje, SEPARADOR, 7);
-    String valorHumedad2 = getValor(mensaje, SEPARADOR, 9);
-    String valorHumedad3 = getValor(mensaje, SEPARADOR, 11);
+    String valorLluvia = getValor(mensaje, SEPARADOR, 4);
+    String valorHumedad1 = getValor(mensaje, SEPARADOR, 5);
+    String valorHumedad2 = getValor(mensaje, SEPARADOR, 6);
+    String valorHumedad3 = getValor(mensaje, SEPARADOR, 7);
 
     limiteSensorHumedad = valorHumedad1.toInt();
     limiteSensorLDR = valorLuz.toInt();
