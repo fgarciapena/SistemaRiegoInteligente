@@ -1,0 +1,151 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:2:1-80:12
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:2:1-80:12
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:2:1-80:12
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:2:1-80:12
+MERGED from [com.android.support:support-v4:21.0.0] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\support-v4-21.0.0.aar\5afc68a39f0d402d4568e34a15d1caf6\AndroidManifest.xml:14:4-17:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e870b32ecc63c2ca31256c8869e9bd51\AndroidManifest.xml:2:1-11:12
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:2:1-80:12
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:2:1-80:12
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:2:1-80:12
+	package
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:3:5-33
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:5:5-32
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:21.0.0] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\support-v4-21.0.0.aar\5afc68a39f0d402d4568e34a15d1caf6\AndroidManifest.xml:15:5-42
+MERGED from [com.android.support:support-v4:21.0.0] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\support-v4-21.0.0.aar\5afc68a39f0d402d4568e34a15d1caf6\AndroidManifest.xml:15:5-42
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e870b32ecc63c2ca31256c8869e9bd51\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e870b32ecc63c2ca31256c8869e9bd51\AndroidManifest.xml:5:5-7:41
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:7:5-9:41
+	android:targetSdkVersion
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:9:9-38
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:8:9-35
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.BLUETOOTH
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:12:5-68
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:12:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:13:5-74
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:13:22-71
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:14:5-81
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:14:22-78
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:15:5-81
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:15:22-78
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:16:5-75
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:16:22-72
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:17:5-80
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:17:22-77
+application
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:19:5-78:19
+MERGED from [com.android.support:support-v4:21.0.0] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\support-v4-21.0.0.aar\5afc68a39f0d402d4568e34a15d1caf6\AndroidManifest.xml:16:5-19
+MERGED from [com.android.support:support-v4:21.0.0] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\support-v4-21.0.0.aar\5afc68a39f0d402d4568e34a15d1caf6\AndroidManifest.xml:16:5-19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e870b32ecc63c2ca31256c8869e9bd51\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Juli\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e870b32ecc63c2ca31256c8869e9bd51\AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:22:9-41
+	android:icon
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:21:9-45
+	android:allowBackup
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:20:9-35
+	android:theme
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:23:9-40
+activity#soa.sistemaderiego.MainActivity
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:26:9-34:20
+	android:label
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:28:13-45
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:27:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:29:13-33:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:30:17-69
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:30:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:32:17-77
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:32:27-74
+activity#soa.sistemaderiego.DeviceListActivity
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:37:9-43:20
+	android:label
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:39:13-45
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:38:13-47
+intent-filter#action:name:android.intent.action.VIEW
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:40:13-42:29
+action#android.intent.action.VIEW
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:41:17-69
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:41:25-66
+activity#soa.sistemaderiego.MainMenuActivity
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:45:9-51:20
+	android:parentActivityName
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:47:13-66
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:46:13-45
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:48:13-50:49
+	android:value
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:50:17-46
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:49:17-63
+activity#soa.sistemaderiego.StartDeviceActivity
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:52:9-58:20
+	android:parentActivityName
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:54:13-59
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:53:13-48
+activity#soa.sistemaderiego.ConfigurationMenuActivity
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:59:9-65:20
+	android:parentActivityName
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:61:13-59
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:60:13-54
+activity#soa.sistemaderiego.ExceptionConfigurationActivity
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:66:9-72:20
+	android:parentActivityName
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:68:13-59
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:67:13-59
+activity#soa.sistemaderiego.CircuitSelectionActivity
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:73:9-62
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:73:19-59
+activity#soa.sistemaderiego.activity_comunicacion
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:76:9-68
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:76:19-56
+activity#soa.sistemaderiego.MainInformationActivity
+ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:77:9-71
+	android:name
+		ADDED from C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\src\main\AndroidManifest.xml:77:19-58
