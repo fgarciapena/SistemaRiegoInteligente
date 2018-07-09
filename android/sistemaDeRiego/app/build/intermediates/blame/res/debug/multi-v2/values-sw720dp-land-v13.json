@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Juli\\Desktop\\SistemaDeRiegoJuli\\Sistema de riego\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-land-v13\\values-sw720dp-land-v13.xml",
+            "outputFile": "/Users/fgarciapena/repos/SistemaRiegoInteligente/android/sistemaDeRiego/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw720dp-land-v13/values-sw720dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Juli\\Desktop\\SistemaDeRiegoJuli\\Sistema de riego\\app\\src\\main\\res\\values-sw720dp-land\\dimens.xml",
+                    "source": "/Users/fgarciapena/repos/SistemaRiegoInteligente/android/sistemaDeRiego/app/src/main/res/values-sw720dp-land/dimens.xml",
                     "from": {
                         "startLines": "6",
                         "startColumns": "4",

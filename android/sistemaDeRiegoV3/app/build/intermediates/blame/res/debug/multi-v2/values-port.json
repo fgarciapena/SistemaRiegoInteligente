@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/fgarciapena/repos/SistemaRiegoInteligente/android/sistemaDeRiegoV3/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/Users/fgarciapena/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/938f63ba6ced7e99a3ff5aea52f8abf9/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -10,6 +10,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class MainMenuActivity extends Activity {
 
     public String automaticoActivado;
     public String address;
+    private ShakeListener mShaker;
 
     private SensorManager manager;
     private SensorEventListener listener;
@@ -28,6 +30,8 @@ public class MainMenuActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        final Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 
         //Obtengo el parametro, aplicando un Bundle, que me indica la Mac Adress del HC05
         Intent intent=getIntent();
@@ -66,6 +70,15 @@ public class MainMenuActivity extends Activity {
                 }
             }
         };
+
+        mShaker = new ShakeListener(this);
+        mShaker.setOnShakeListener(new ShakeListener.OnShakeListener () {
+            public void onShake()
+            {
+                vibe.vibrate(100);
+                showModalForManualMode(null);
+            }
+        });
     }
 
 
@@ -115,7 +128,6 @@ public class MainMenuActivity extends Activity {
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String dataPackage = "CMD|AUTO|ON#";
-                //TODO: send to the embebbed device the message
             }
         });
 
@@ -131,5 +143,18 @@ public class MainMenuActivity extends Activity {
 
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResume()
+    {
+        mShaker.resume();
+        super.onResume();
+    }
+    @Override
+    public void onPause()
+    {
+        mShaker.pause();
+        super.onPause();
     }
 }
