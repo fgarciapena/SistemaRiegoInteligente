@@ -1,4 +1,4 @@
-#Mon Jul 09 12:58:55 ART 2018
+#Mon Jul 09 16:10:57 ART 2018
 base.0=/Users/fgarciapena/repos/SistemaRiegoInteligente/android/sistemaDeRiego/app/build/intermediates/transforms/dexMerger/debug/2
 path.0=classes.dex
 renamed.0=classes.dex

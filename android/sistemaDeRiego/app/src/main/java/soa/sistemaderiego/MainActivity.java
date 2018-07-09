@@ -10,6 +10,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +40,27 @@ public class MainActivity extends Activity
 	private ArrayList<BluetoothDevice> mDeviceList = new ArrayList<BluetoothDevice>();
 
 	private BluetoothAdapter mBluetoothAdapter;
+	SensorManager mySensorManager;
+	Sensor myProximitySensor;
+
+	SensorEventListener proximitySensorEventListener = new SensorEventListener() {
+		@Override
+		public void onAccuracyChanged(Sensor sensor, int accuracy) {
+			// TODO Auto-generated method stub
+		}
+		@Override
+		public void onSensorChanged(SensorEvent event) {
+			if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+				if (event.values[0] == 0) {
+					//near
+					toggleBluetooth();
+				} else {
+					//away
+					//do nothing
+				}
+			}
+		}
+	};
 
 	@Override
 	//Metodo On create
@@ -43,6 +68,18 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_main);
+
+		//creando listener para sensor de proximidad
+		mySensorManager = (SensorManager) getSystemService(
+				Context.SENSOR_SERVICE);
+		myProximitySensor = mySensorManager.getDefaultSensor(
+				Sensor.TYPE_PROXIMITY);
+		if (myProximitySensor != null) {
+			mySensorManager.registerListener(proximitySensorEventListener,
+					myProximitySensor,
+					SensorManager.SENSOR_DELAY_NORMAL);
+		}
+
 
 		//Se definen los componentes del layout
 		txtEstado = (TextView) findViewById(R.id.txtEstado);
@@ -258,18 +295,21 @@ public class MainActivity extends Activity
 	private View.OnClickListener btnActivarListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			if (mBluetoothAdapter.isEnabled()) {
-				mBluetoothAdapter.disable();
-
-				showDisabled();
-			} else {
-				Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-
-				startActivityForResult(intent, 1000);
-			}
+			toggleBluetooth();
 		}
 	};
 
+	private void toggleBluetooth(){
+		if (mBluetoothAdapter.isEnabled()) {
+			mBluetoothAdapter.disable();
+
+			showDisabled();
+		} else {
+			Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+
+			startActivityForResult(intent, 1000);
+		}
+	}
 
 	private DialogInterface.OnClickListener btnCancelarDialogListener = new DialogInterface.OnClickListener() {
 		@Override
