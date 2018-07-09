@@ -1,4 +1,4 @@
-#Sat Jul 07 18:57:49 ART 2018
+#Sun Jul 08 23:22:46 ART 2018
 base.0=C\:\\Users\\Juli\\Desktop\\SistemaDeRiegoJuli\\Sistema de riego\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
 path.0=classes.dex
 renamed.0=classes.dex

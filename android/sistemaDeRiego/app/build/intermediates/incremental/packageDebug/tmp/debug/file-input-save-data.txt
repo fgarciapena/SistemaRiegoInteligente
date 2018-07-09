@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Jul 07 21:25:35 ART 2018
+#Sun Jul 08 23:22:47 ART 2018
 1.base=C\:\\Users\\Juli\\Desktop\\SistemaDeRiegoJuli\\Sistema de riego\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
 2.path=classes.dex
 0.baseType=DIRECTORY

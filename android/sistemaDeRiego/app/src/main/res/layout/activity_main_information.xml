@@ -17,6 +17,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:src="@android:drawable/ic_menu_manage"
+        android:onClick="mainMenu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -52,7 +53,7 @@
                 android:id="@+id/lightSensorValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="50" />
+                android:text="Actualizando" />
 
         </TableRow>
 
@@ -72,7 +73,7 @@
                 android:id="@+id/rainSensorValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="50" />
+                android:text="Actualizando" />
 
         </TableRow>
 
@@ -92,7 +93,7 @@
                 android:id="@+id/automatic_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="50" />
+                android:text="Actualizando" />
         </TableRow>
 
         <TableRow
@@ -113,7 +114,7 @@
                 android:layout_width="193dp"
                 android:layout_height="wrap_content"
 
-                android:text="Funcionando" />
+                android:text="Actualizando" />
 
         </TableRow>
 
@@ -134,7 +135,7 @@
                 android:id="@+id/wetSensor1Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="50" />
+                android:text="Actualizando" />
         </TableRow>
 
         <TableRow
@@ -162,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Dom-Lun-Mar-Mier-Jue-Vie-Sab 8:30 10:50" />
+                android:text="Actualizando" />
 
         </TableRow>
 
@@ -185,7 +186,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Funcionando" />
+                android:text="Actualizando" />
 
         </TableRow>
 
@@ -207,7 +208,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="50" />
+                android:text="Actualizando" />
 
         </TableRow>
 
@@ -234,7 +235,7 @@
                 android:id="@+id/exceptionCircuit2"
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
-                android:text="Dom-Lun-Mar-Mier-Jue-Vie-Sab 8:30 10:50" />
+                android:text="Actualizando" />
         </TableRow>
 
         <TableRow
@@ -254,7 +255,7 @@
                 android:id="@+id/circuit3Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Funcionando" />
+                android:text="Actualizando" />
 
         </TableRow>
 
@@ -275,7 +276,7 @@
                 android:id="@+id/wetSensor3Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="50" />
+                android:text="Actualizando" />
 
         </TableRow>
 
@@ -305,7 +306,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Dom-Lun-Mar-Mier-Jue-Vie-Sab 8:30 10:50" />
+                android:text="Actualizando" />
         </TableRow>
 
     </TableLayout>

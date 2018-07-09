@@ -7,22 +7,22 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.1.3"
-    timestamp="1531009888636"
+    timestamp="1531104793802"
     token="4394369039065187348"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="190" />
+        duration="311" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="20" />
+        duration="46" />
     <task
         name="verifier"
-        duration="35" />
+        duration="49" />
 
     <artifact
         location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
@@ -33,49 +33,58 @@
 
     <build
         build-mode="FULL"
-        timestamp="1531009810903"
+        timestamp="1531102960634"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
-        <artifact
-            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
             location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
+        <artifact
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1531009888636"
+        timestamp="1531104135053"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1531104793802"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Juli\Desktop\SistemaDeRiegoJuli\Sistema de riego\app\build\intermediates\split-apk\debug\slices\slice_4.apk"

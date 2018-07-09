@@ -42,49 +42,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainInformationActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainInformationActivity.java">
+      <file leaf-file-name="ConfigurationMenuActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ConfigurationMenuActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="214" column="55" lean-forward="false" selection-start-line="214" selection-start-column="55" selection-end-line="214" selection-end-column="55" />
+            <state relative-caret-position="702">
+              <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="158" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5885#6878#0" expanded="true" />
-                <element signature="e#6877#6878#0" expanded="true" />
+                <element signature="e#5315#5727#0" expanded="true" />
+                <element signature="e#5726#5727#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainActivity.java">
+      <file leaf-file-name="MainInformationActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainInformationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-595">
-              <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+            <state relative-caret-position="1471">
+              <caret line="128" column="57" lean-forward="true" selection-start-line="128" selection-start-column="57" selection-end-line="128" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+      <file leaf-file-name="BlueToothService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/BlueToothService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="887">
+              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1562#1563#0" expanded="true" />
+                <element signature="e#1603#1604#0" expanded="true" />
+                <element signature="e#4707#6442#0" expanded="true" />
+                <element signature="e#6441#6442#0" expanded="true" />
+              </folding>
             </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_comunicacion.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/activity_comunicacion.java">
+      <file leaf-file-name="ExceptionConfigurationActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ExceptionConfigurationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="163" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="297">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding>
+                <element signature="e#8262#10078#0" expanded="true" />
+                <element signature="e#10077#10078#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,6 +101,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -102,6 +109,15 @@
     <findStrings>
       <find>la conexion fallo</find>
       <find>fallo</find>
+      <find>wetSensor3Value</find>
+      <find>ibi</find>
+      <find>ibinder</find>
+      <find>bluetooth</find>
+      <find>MAC_ADDRESS</find>
+      <find>send</find>
+      <find>binding</find>
+      <find>binder</find>
+      <find>activi</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -2126,6 +2142,19 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_prueba.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_information.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_configuration.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_exception_configuration.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/CircuitSelectionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/BluetoothService/BluetoothService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/BluetoothServiceReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ServicioPrueba.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/BluetoothService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainMenuActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ConfigurationMenuActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/BlueToothService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ExceptionConfigurationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainInformationActivity.java" />
       </list>
     </option>
@@ -2151,14 +2180,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="Sistema de riego" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="Sistema de riego" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="Sistema de riego" type="1abcf292:AndroidViewProjectNode" />
@@ -2171,35 +2203,33 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="sistemaderiego" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Sistema de riego" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="Sistema de riego" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="device.picker.selection" value="ZY2236T9RJ" />
     <property name="android.profiler.active" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="build.gradle&#9;FILE&#9;file:///Users/fgarciapena/Desktop/SOA/SistemaDeRiegoJuli/Sistema de riego/build.gradle&#10;build.gradl&#9;FILE&#9;file:///Users/fgarciapena/Desktop/SOA/SistemaDeRiegoJuli/Sistema de riego/build.gradle" />
+    <property name="SearchEverywhereHistoryKey" value="wetSensor3Value&#9;PSI&#9;JAVA://soa.sistemaderiego.MainInformationActivity#wetSensor3Value&#10;build.gradle&#9;FILE&#9;file:///Users/fgarciapena/Desktop/SOA/SistemaDeRiegoJuli/Sistema de riego/build.gradle&#10;build.gradl&#9;FILE&#9;file:///Users/fgarciapena/Desktop/SOA/SistemaDeRiegoJuli/Sistema de riego/build.gradle" />
     <property name="DEBUGGABLE_DEVICE" value="motorola-motog3-ZY2236T9RJ" />
     <property name="DEBUGGABLE_PROCESS" value="net.londatiga.android.bluetooth" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="DEBUGGER_ID" value="Auto" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Android-Code" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../iot-2016-c1-smart-shower-android" />
+    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.proportion" value="0.15" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="soa.sistemaderiego" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2385,23 +2415,21 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39903265" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.49427754" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.4914163" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06716418" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24673913" sideWeight="0.4914163" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12899786" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23152174" sideWeight="0.4914163" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4076087" sideWeight="0.49713877" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23260869" sideWeight="0.49713877" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2409,6 +2437,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2416,45 +2446,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ExceptionConfigurationActivity.java</url>
-          <line>319</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ConfigurationMenuActivity.java</url>
-          <line>270</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/activity_comunicacion.java</url>
-          <line>244</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/activity_comunicacion.java</url>
-          <line>248</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ConfigurationMenuActivity.java</url>
-          <line>275</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ExceptionConfigurationActivity.java</url>
-          <line>324</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="53" />
+      <option name="time" value="111" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2478,143 +2470,61 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_information.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ConfigurationMenuActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4114">
-          <caret line="258" column="23" lean-forward="false" selection-start-line="258" selection-start-column="23" selection-end-line="258" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/CircuitSelectionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ExceptionConfigurationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/DeviceListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2210">
-          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/activity_comunicacion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="181" column="28" lean-forward="false" selection-start-line="181" selection-start-column="12" selection-end-line="181" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainInformationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3672">
-          <caret line="216" column="0" lean-forward="false" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5885#6878#0" expanded="true" />
-            <element signature="e#6877#6878#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/DeviceListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-522">
+        <state relative-caret-position="170">
           <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/DeviceListActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainMenuActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2210">
-          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+        <state relative-caret-position="663">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-21/android.jar!/java/io/OutputStream.class" />
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+        <state relative-caret-position="323">
+          <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ConfigurationMenuActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4114">
-          <caret line="258" column="23" lean-forward="false" selection-start-line="258" selection-start-column="23" selection-end-line="258" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-21/android.jar!/android/os/Handler.class" />
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-21/android.jar!/android/os/Message.class" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/CircuitSelectionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="629">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ExceptionConfigurationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="2108">
+          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding>
+            <element signature="e#8262#10078#0" expanded="true" />
+            <element signature="e#10077#10078#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_comunicacion.xml">
-      <provider editor-type-id="text-editor">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainInformationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/activity_comunicacion.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="163" selection-end-column="17" />
+        <state relative-caret-position="2414">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2630,7 +2540,16 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_prueba.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/activity_comunicacion.java" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_information.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -2641,11 +2560,133 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_information.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="300" column="46" lean-forward="false" selection-start-line="300" selection-start-column="46" selection-end-line="300" selection-end-column="46" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ConfigurationMenuActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4114">
+          <caret line="258" column="23" lean-forward="false" selection-start-line="258" selection-start-column="23" selection-end-line="258" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5315#5727#0" expanded="true" />
+            <element signature="e#5726#5727#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/CircuitSelectionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ExceptionConfigurationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="e#8262#10078#0" expanded="true" />
+            <element signature="e#10077#10078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/DeviceListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/activity_comunicacion.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainInformationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3672">
+          <caret line="216" column="0" lean-forward="false" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-21/android.jar!/java/io/OutputStream.class" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-21/android.jar!/android/os/Handler.class" />
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-21/android.jar!/android/os/Message.class" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/activity_comunicacion.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_prueba.xml" />
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/app/Dialog.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="318" column="0" lean-forward="false" selection-start-line="318" selection-start-column="0" selection-end-line="318" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/os/Handler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/os/Looper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2414">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_information.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="55" lean-forward="false" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_circuit_selection.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_comunicacion.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -2663,283 +2704,302 @@
         <state />
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/app/Dialog.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="318" column="0" lean-forward="false" selection-start-line="318" selection-start-column="0" selection-end-line="318" selection-end-column="0" />
-          <folding>
-            <marker date="1529971364265" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1529971364265" expanded="false" signature="135:1055" ph="..." />
-            <marker date="1529971364265" expanded="false" signature="1211:1222" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1258:1264" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1311:1322" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1358:1364" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="1457:1509" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="1548:1559" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1595:1601" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1638:1649" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1685:1691" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1750:1761" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1797:1803" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1849:1860" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1896:1902" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1934:1945" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1981:1987" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2013:2024" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2060:2066" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2090:2101" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2137:2143" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2167:2178" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2214:2220" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2247:2258" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2294:2300" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2356:2367" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2403:2409" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2439:2450" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2486:2492" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2521:2532" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2568:2574" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2615:2626" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2662:2668" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="2736:2788" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="2819:2830" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2866:2872" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2907:2918" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2954:2960" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2998:3009" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3045:3051" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="3100:3111" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3147:3153" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="3196:3207" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3243:3249" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="3314:3366" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="3431:3483" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="3529:3540" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3576:3582" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="3621:3632" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3668:3674" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="3733:3744" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3780:3786" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="3851:3903" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="3960:3971" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="4007:4013" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="4094:4146" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="4179:4190" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="4226:4232" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="4296:4348" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="4400:4411" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="4447:4453" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="4509:4520" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="4556:4562" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="4622:4633" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="4669:4675" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="4767:4819" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="4855:4866" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="4902:4908" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="4964:4975" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="5011:5017" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="5055:5066" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="5102:5108" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="5148:5159" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="5195:5201" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="5254:5265" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="5301:5307" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="5368:5379" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="5415:5421" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="5476:5487" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="5523:5529" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="5588:5599" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="5635:5641" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="5705:5757" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="5839:5891" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="5941:5952" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="5988:5994" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="6059:6111" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="6184:6236" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="6295:6306" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="6342:6348" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="6418:6470" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="6527:6538" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="6574:6580" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="6631:6642" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="6678:6684" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="6736:6747" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="6783:6789" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="6846:6857" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="6893:6899" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="6947:6958" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="6994:7000" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="7035:7046" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="7082:7088" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="7124:7135" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="7171:7177" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="7218:7229" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="7265:7271" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="7361:7413" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="7464:7475" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="7511:7517" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="7570:7581" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="7617:7623" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="7667:7678" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="7714:7720" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="7777:7788" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="7824:7830" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="7878:7889" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="7925:7931" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="7971:7982" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="8018:8024" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="8118:8170" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="8224:8235" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="8271:8277" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="8332:8343" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="8379:8385" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="8429:8440" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="8476:8482" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="8545:8597" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="8674:8726" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="8796:8848" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="8925:8977" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="9051:9103" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="9150:9161" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="9197:9203" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="9248:9259" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="9295:9301" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="9360:9371" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="9407:9413" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="9439:9450" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="9486:9492" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="9557:9609" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="9656:9667" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="9703:9709" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="9776:9828" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="9888:9899" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="9935:9941" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="9989:10000" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="10036:10042" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="10105:10157" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="10204:10215" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="10251:10257" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="10321:10373" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/os/Handler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding>
-            <marker date="1529971364265" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1529971364265" expanded="false" signature="200:211" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="247:253" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="300:311" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="347:353" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="388:399" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="435:441" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="504:556" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="600:611" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="647:653" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="699:710" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="746:752" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="803:814" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="850:856" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="898:909" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="945:951" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1001:1012" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1048:1054" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="1117:1169" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="1240:1292" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="1375:1427" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="1470:1481" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1517:1523" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="1592:1644" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="1727:1779" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="1848:1900" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="1957:1968" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2004:2010" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2061:2072" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2108:2114" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="2180:2232" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="2283:2294" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2330:2336" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="2389:2400" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="2436:2442" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="2521:2573" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="2652:2704" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="2781:2833" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="2904:2956" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="3022:3074" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="3122:3133" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3169:3175" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="3239:3291" ph="{...}" />
-            <marker date="1529971364265" expanded="true" signature="3356:3408" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="3456:3467" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3503:3509" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="3573:3625" ph="{...}" />
-            <marker date="1529971364265" expanded="false" signature="3662:3673" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3709:3715" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="3770:3781" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3817:3823" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="3853:3864" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="3900:3906" ph=" }" />
-            <marker date="1529971364265" expanded="true" signature="3938:3990" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/os/Looper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding>
-            <marker date="1529971364265" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1529971364265" expanded="false" signature="197:208" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="244:250" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="284:295" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="331:337" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="381:392" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="428:434" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="476:487" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="523:529" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="560:571" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="607:613" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="650:661" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="697:703" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="755:766" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="802:808" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="850:861" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="897:903" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="927:938" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="974:980" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1010:1021" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1057:1063" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1094:1105" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1141:1147" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1196:1207" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1243:1249" ph=" }" />
-            <marker date="1529971364265" expanded="false" signature="1279:1290" ph=" { " />
-            <marker date="1529971364265" expanded="false" signature="1326:1332" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_exception_configuration.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="39" lean-forward="false" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="1999" column="28" lean-forward="false" selection-start-line="1999" selection-start-column="28" selection-end-line="1999" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/BluetoothServiceReceiver.java" />
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/os/Process.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="40" column="37" lean-forward="false" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ServicioPrueba.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/Constants.java" />
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/bluetooth/BluetoothAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/DeviceListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/DeviceListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/app/Activity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2491">
+          <caret line="687" column="16" lean-forward="false" selection-start-line="687" selection-start-column="16" selection-end-line="687" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-21/android.jar!/android/content/ContextWrapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="242" column="46" lean-forward="false" selection-start-line="242" selection-start-column="46" selection-end-line="242" selection-end-column="46" />
+          <folding>
+            <marker date="1529971364265" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1529971364265" expanded="false" signature="139:1073" ph="..." />
+            <marker date="1529971364265" expanded="false" signature="1160:1171" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="1207:1213" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="1265:1276" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="1312:1318" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="1355:1366" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="1402:1408" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="1445:1456" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="1492:1498" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="1535:1546" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="1582:1588" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="1635:1646" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="1682:1688" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="1737:1748" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="1784:1790" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="1825:1836" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="1872:1878" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="1922:1933" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="1969:1975" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="2012:2023" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="2059:2065" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="2094:2105" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="2141:2147" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="2188:2199" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="2235:2241" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="2277:2288" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="2324:2330" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="2379:2390" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="2426:2432" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="2476:2487" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="2523:2529" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="2569:2580" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="2616:2622" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="2697:2749" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="2834:2886" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="2983:3035" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="3079:3090" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3126:3132" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3180:3191" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3227:3233" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3265:3276" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3312:3318" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3349:3360" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3396:3402" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3441:3452" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3488:3494" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3544:3555" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3591:3597" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3650:3661" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3697:3703" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3732:3743" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3779:3785" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3817:3828" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3864:3870" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3901:3912" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="3948:3954" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="3989:4000" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="4036:4042" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="4081:4092" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="4128:4134" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="4176:4187" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="4223:4229" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="4271:4282" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="4318:4324" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="4371:4382" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="4418:4424" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="4519:4571" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="4701:4753" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="4801:4812" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="4848:4854" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="4900:4911" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="4947:4953" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="4989:5000" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="5036:5042" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="5078:5089" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="5125:5131" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="5168:5179" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="5215:5221" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="5271:5282" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="5318:5324" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="5375:5386" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="5422:5428" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="5493:5545" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="5613:5665" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="5719:5771" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="5817:5828" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="5864:5870" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="5933:5985" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="6036:6047" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="6083:6089" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="6157:6209" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="6362:6414" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="6583:6635" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="6681:6692" ph=" { " />
+            <marker date="1529971364265" expanded="true" signature="6728:6734" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="6808:6860" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="6941:6993" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="7186:7238" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="7308:7360" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="7457:7509" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="7725:7777" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="7829:7840" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="7876:7882" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="8054:8106" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="8160:8171" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="8207:8213" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="8289:8341" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="8536:8588" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="8666:8718" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="8804:8856" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="8989:9041" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="9106:9158" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="9213:9224" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="9260:9266" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="9311:9322" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="9358:9364" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="9448:9500" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="9555:9566" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="9602:9608" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="9713:9765" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="9814:9825" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="9861:9867" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="9937:9989" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="10047:10058" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="10094:10100" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="10165:10217" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="10306:10358" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="10436:10488" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="10572:10624" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="10703:10755" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="10816:10827" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="10863:10869" ph=" }" />
+            <marker date="1529971364265" expanded="true" signature="10947:10999" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="11066:11118" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="11191:11243" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="11368:11420" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="11517:11569" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="11655:11707" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="11799:11851" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="11995:12047" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="12149:12201" ph="{...}" />
+            <marker date="1529971364265" expanded="true" signature="12286:12338" ph="{...}" />
+            <marker date="1529971364265" expanded="false" signature="12396:12407" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="12443:12449" ph=" }" />
+            <marker date="1529971364265" expanded="false" signature="12484:12495" ph=" { " />
+            <marker date="1529971364265" expanded="false" signature="12531:12537" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/CircuitSelectionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainMenuActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ConfigurationMenuActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="158" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5315#5727#0" expanded="true" />
+            <element signature="e#5726#5727#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/ExceptionConfigurationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#8262#10078#0" expanded="true" />
+            <element signature="e#10077#10078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/BlueToothService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="887">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#4707#6442#0" expanded="true" />
+            <element signature="e#6441#6442#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/soa/sistemaderiego/MainInformationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="214" column="55" lean-forward="false" selection-start-line="214" selection-start-column="55" selection-end-line="214" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5885#6878#0" expanded="true" />
-            <element signature="e#6877#6878#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1471">
+          <caret line="128" column="57" lean-forward="true" selection-start-line="128" selection-start-column="57" selection-end-line="128" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
