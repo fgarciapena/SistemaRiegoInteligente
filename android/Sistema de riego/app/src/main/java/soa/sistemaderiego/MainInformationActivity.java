@@ -35,6 +35,7 @@ public class MainInformationActivity extends Activity {
      TextView circuit2Value;
      TextView exceptionCircuit3;
      TextView circuit3Value;
+     TextView lightSensorCelValue;
 
      String circuitosEncendidos = "";
      String automaticoActivado = "";
@@ -43,6 +44,7 @@ public class MainInformationActivity extends Activity {
 
     SensorManager mySensorManager;
     Sensor myProximitySensor;
+    Sensor myLightSensor;
 
     SensorEventListener proximitySensorEventListener = new SensorEventListener() {
         @Override
@@ -63,6 +65,18 @@ public class MainInformationActivity extends Activity {
         }
     };
 
+    SensorEventListener lightSensorEventListener = new SensorEventListener() {
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+            // TODO Auto-generated method stub
+        }
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            float value = (event.values[0]*100)/myLightSensor.getMaximumRange();
+            lightSensorCelValue.setText(String.format ("%.2f", value));
+        }
+    };
+
     @SuppressLint({"WrongViewCast", "HandlerLeak"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +87,10 @@ public class MainInformationActivity extends Activity {
                 Context.SENSOR_SERVICE);
         myProximitySensor = mySensorManager.getDefaultSensor(
                 Sensor.TYPE_PROXIMITY);
+        myLightSensor = mySensorManager.getDefaultSensor(
+                Sensor.TYPE_LIGHT);
 
-
+        lightSensorCelValue = (TextView) findViewById(R.id.lightSensorCelValue);
         wetSensor1Value   = (TextView) findViewById(R.id.wetSensor1Value);
         wetSensor2Value   = (TextView)  findViewById(R.id.wetSensor2Value);
         wetSensor3Value   = (TextView) findViewById(R.id.wetSensor3Value);
@@ -136,6 +152,11 @@ public class MainInformationActivity extends Activity {
         if (myProximitySensor != null) {
             mySensorManager.registerListener(proximitySensorEventListener,
                     myProximitySensor,
+                    SensorManager.SENSOR_DELAY_NORMAL);
+        }
+        if (myLightSensor != null) {
+            mySensorManager.registerListener(lightSensorEventListener,
+                    myLightSensor,
                     SensorManager.SENSOR_DELAY_NORMAL);
         }
         Intent msgIntent = new Intent(MainInformationActivity.this, BlueToothService.class);

@@ -42,7 +42,6 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp">
 
-
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
@@ -56,7 +55,25 @@
                 android:text="Actualizando" />
 
         </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp">
 
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sensor de luz" />
+
+            <TextView
+                android:id="@+id/lightSensorCelValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actualizando" />
+
+        </TableRow>
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
