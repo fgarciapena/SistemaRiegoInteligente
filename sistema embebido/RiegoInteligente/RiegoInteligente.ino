@@ -250,15 +250,15 @@ void VerificarBluetooth()
           SendHistoricos();
         } else if(comando == "CONFIG"){
           SendConfigInfo();
-        }else if (comando = "EXC"){
+        }else if (comando == "EXC"){
           SendExcepcionInfo();
-        }else if (comando = "SET"){
+        }else if (comando == "SET"){
           ProcesarSetCommand(mensaje);
-        }else if (comando = "AUTO"){
+        }else if (comando == "AUTO"){
           ProcesarAutoCommand(mensaje);
-        }else if (comando = "INICIAR"){
+        }else if (comando == "INICIAR"){
           ProcesarIniciarCommand(mensaje);
-        }else if (comando = "PARAR"){
+        }else if (comando == "PARAR"){
           ProcesarPararCommand(mensaje);
         }else{
           Serial.println("***COMANDO DESCONOCIDO***");
@@ -274,7 +274,7 @@ void ProcesarPararCommand(String mensaje){
       String circuito = getValor(mensaje, SEPARADOR, 2);
       int numeroCircuito = circuito.toInt() - 1;
       if(numeroCircuito < CANTIDAD_CIRCUITOS ){
-        funcionamientoCircuito[numeroCircuito] = false;
+        DesactivarCircuito(numeroCircuito);        
         Serial.print("PARAR CIRCUITO ");
         Serial.println(circuito);
       }
@@ -289,7 +289,7 @@ void ProcesarIniciarCommand(String mensaje){
       String circuito = getValor(mensaje, SEPARADOR, 2);
       int numeroCircuito = circuito.toInt() - 1;
       if(numeroCircuito < CANTIDAD_CIRCUITOS ){
-        funcionamientoCircuito[numeroCircuito] = true;
+        ActivarCircuito(numeroCircuito);
         Serial.print("INICIAR CIRCUITO ");
         Serial.println(circuito);
         }
@@ -346,9 +346,9 @@ void ProcesarSetCommand(String mensaje){
     String strCircuito = getValor(mensaje, SEPARADOR, 3);
     int numeroCircuito = strCircuito.toInt() - 1;
     String dias = getValor(mensaje, SEPARADOR, 4);
-    for(int y = 0 ; y > 7; y++)
+    for(int y = 0 ; y < 7; y++)
     {
-      if(dias.indexOf(String(y)) > 0){
+      if(dias.indexOf(String(y)) >= 0){
         diasExcepcion[numeroCircuito][y]= true;
       }      
       else{
