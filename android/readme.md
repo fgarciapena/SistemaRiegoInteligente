@@ -1,15 +1,5 @@
 sistema android para sistema de riego inteligente
-<<<<<<< HEAD
-
-Integrantes:
-Lucas
-Pablo
-Lucas Nicoloso
-Julian Delfino
-Facundo Garcia PenaFacundo Garcia Pena
-=======
-Facundo Garcï¿½a Pena
+Facundo García Pena
 Julian Delfino
 Lucas Nicoloso
 Lucas Martinez
->>>>>>> feature/new-activities
